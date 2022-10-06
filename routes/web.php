@@ -20,7 +20,10 @@ use App\Http\Controllers\HomeController;
 // });
 
 Route::get('/',[HomeController::class, 'index']);
+Route::get('/dashboard',[MainController::class, 'index'])->name('dashboard');
+Route::get('/products',[MainController::class, 'product'])->name('products');
+Route::get('/create_product',[MainController::class, 'create_product'])->name('create_product');
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-});
+// Route::get('/dashboard', function () {
+//     return view('dashboard.index');
+// });

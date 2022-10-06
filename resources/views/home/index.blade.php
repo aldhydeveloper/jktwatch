@@ -63,7 +63,7 @@
     </div>
 
     <!-- Marketing messaging and featurettes
-      ================================================== -->
+                      ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">
@@ -133,8 +133,8 @@
                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
                     preserveAspectRatio="xMidYMid slice" focusable="false">
                     <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%"
-                        fill="#aaa" dy=".3em">500x500</text>
+                    <rect width="100%" height="100%" fill="#aaa" /><text x="50%" y="50%"
+                        fill="#fff" dy=".3em">500x500</text>
                 </svg>
 
             </div>
@@ -155,8 +155,8 @@
                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
                     preserveAspectRatio="xMidYMid slice" focusable="false">
                     <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%"
-                        fill="#aaa" dy=".3em">500x500</text>
+                    <rect width="100%" height="100%" fill="#aaa" /><text x="50%" y="50%"
+                        fill="#fff" dy=".3em">500x500</text>
                 </svg>
 
             </div>
@@ -178,8 +178,8 @@
                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
                     preserveAspectRatio="xMidYMid slice" focusable="false">
                     <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%"
-                        fill="#aaa" dy=".3em">500x500</text>
+                    <rect width="100%" height="100%" fill="#aaa" /><text x="50%" y="50%"
+                        fill="#fff" dy=".3em">500x500</text>
                 </svg>
 
             </div>

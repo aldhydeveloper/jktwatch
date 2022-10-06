@@ -13,11 +13,11 @@
     <link href="/css/carousel.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-dark">
 
     @include('home.layouts.header')
 
-    <div class="container">
+    <div class="container ">
         @yield('container')
     </div>
 

@@ -7,8 +7,8 @@
 
         <ul class="nav col-12 col-md-auto mb-2 align-items-center justify-content-center mb-md-0">
             <li><a href="#" class="nav-link link-secondary ">HOME</a></li>
-            <li><a href="#" class="nav-link link-dark ">WATCHES</a></li>
-            <li><a href="#" class="nav-link link-dark ">ABOUT US</a></li>
+            <li><a href="#" class="nav-link link-light ">WATCHES</a></li>
+            <li><a href="#" class="nav-link link-light ">ABOUT US</a></li>
         </ul>
 
         <div class="col-md-3 dropdown text-end">

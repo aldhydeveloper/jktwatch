@@ -8,14 +8,14 @@ class MainController extends Controller
 {
     function index()
     {
-        return view("dashboard/index");
+        return view("dashboard.index");
     }
-    function about()
+    function product()
     {
-    
+        return view("dashboard.product.products");
     }
-    function contact()
+    function create_product()
     {
-    
+     return view("dashboard.product.create_products");
     }
 }

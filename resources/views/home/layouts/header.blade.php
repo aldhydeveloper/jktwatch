@@ -2,7 +2,7 @@
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between mb-4">
         <a href="/" class="d-flex align-items-center col-md-3 mb-1 mb-md-0 text-dark text-decoration-none">
             <!-- <h3>JAKARTA WATCH TRADER</h3> -->
-            <img src="img/logo.png" alt="logo" width="60%">
+            <img src="img/logo_white.png" alt="logo" width="60%">
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 align-items-center justify-content-center mb-md-0">

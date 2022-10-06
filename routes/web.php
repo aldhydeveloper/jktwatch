@@ -19,7 +19,10 @@ use App\Http\Controllers\HomeController;
 //     return view('welcome');
 // });
 
-Route::get('/',[HomeController::class, 'index']);
+Route::get('/',[HomeController::class, 'index'])->name('home');
+Route::get('/watches',[HomeController::class, 'watches'])->name('watches');
+Route::get('/about',[HomeController::class, 'about'])->name('about');
+
 Route::get('/dashboard',[MainController::class, 'index'])->name('dashboard');
 Route::get('/products',[MainController::class, 'product'])->name('products');
 Route::get('/create_product',[MainController::class, 'create_product'])->name('create_product');

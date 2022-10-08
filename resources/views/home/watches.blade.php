@@ -5,7 +5,7 @@
         <h3 class="text-center text-light">Our Collections</h3>
     </div>
 
-    <div class="row bg-light" style="margin-top: 3rem; margin-bottom: 3rem">
+    <div class="row  bg-light " style="margin-top: 3rem; margin-bottom: 10rem; height: 1300px;">
         <nav id="sidebarMenu" class="py-3  col-md-3 col-lg-2 d-md-block bg-light">
 
             <div class="flex-shrink-0 p-2 ">
@@ -75,7 +75,7 @@
                 <div class="container">
 
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-                        <div class="col">
+                        <div class="col" style="padding-bottom: 10px">
                             <div class="card shadow-sm">
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
                                     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"

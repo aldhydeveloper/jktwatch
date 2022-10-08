@@ -18,4 +18,15 @@ class MainController extends Controller
     {
      return view("dashboard.product.create_products");
     }
+    
+    function category()
+    {
+        return view("dashboard.category.index");
+    }
+
+    
+    function all_collections()
+    {
+        return view("dashboard.collections.index");
+    }
 }

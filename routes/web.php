@@ -27,6 +27,11 @@ Route::get('/dashboard',[MainController::class, 'index'])->name('dashboard');
 Route::get('/products',[MainController::class, 'product'])->name('products');
 Route::get('/create_product',[MainController::class, 'create_product'])->name('create_product');
 
+Route::get('/category',[MainController::class, 'category'])->name('category');
+
+//collections
+Route::get('/all_collections',[MainController::class, 'all_collections'])->name('collections');
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard.index');
 // });

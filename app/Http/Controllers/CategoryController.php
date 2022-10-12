@@ -14,12 +14,12 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CategoryDataTable $dataTables)
     {
-        $category = Category::where('deleted', false)->get();
-        $data_size = Size::where('deleted', false)->get();
-         return view('dashboard.category.index', compact('category','data_size'));
-        // return $dataTables->render('dashboard.category.index');
+        // $category = Category::where('deleted', false)->get();
+        // $data_size = Size::where('deleted', false)->get();
+        //  return view('dashboard.category.index', compact('category','data_size'));
+        return $dataTables->render('dashboard.category.index');
     }
 
     /**

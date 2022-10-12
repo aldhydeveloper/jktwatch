@@ -13,7 +13,8 @@
                                 style="width: 40px; font-size:21px">+</a>
                         </div>
                         <div class="table-responsive">
-                            <table class="table">
+                            {!! $dataTable->table() !!}
+                            {{-- <table class="table">
                                 <thead>
                                     <tr>
                                         <th> No. </th>
@@ -31,8 +32,6 @@
                                             <td> <a href="/category/{{ $value->id }}/edit" class="btn  btn-primary "
                                                     id="update" style="width: 40px; font-size:12px"><i
                                                         class="bi bi-pencil-fill" style="margin-left: 0 "></i></a>
-                                                {{-- <button type="button" class="btn  btn-primary "><i
-                                                        class="bi bi-pencil-fill" style="margin-right: 0 "></i></button> --}}
                                             </td>
                                             <td>
                                                 <form action="/category/{{ $value->id }}" method="post">
@@ -47,7 +46,7 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
-                            </table>
+                            </table> --}}
                         </div>
                     </div>
                 </div>
@@ -64,7 +63,7 @@
                                 style="width: 40px; font-size:21px">+</a>
                         </div>
                         <div class="table-responsive">
-                            <table class="table">
+                            {{-- <table class="table">
                                 <thead>
                                     <tr>
                                         <th> No. </th>
@@ -84,8 +83,6 @@
                                             <td> <a href="/size/{{ $value->id }}/edit" class="btn  btn-primary "
                                                     id="update" style="width: 40px; font-size:12px"><i
                                                         class="bi bi-pencil-fill" style="margin-left: 0 "></i></a>
-                                                {{-- <button type="button" class="btn  btn-primary "><i
-                                                        class="bi bi-pencil-fill" style="margin-right: 0 "></i></button> --}}
                                             </td>
                                             <td>
                                                 <form action="/size/{{ $value->id }}" method="post">
@@ -99,7 +96,7 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
-                            </table>
+                            </table> --}}
                         </div>
                     </div>
                 </div>
@@ -108,3 +105,6 @@
 
     </div>
 @endsection
+@push('scripts')
+    {{ $dataTable->scripts() }}
+@endpush

@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\SizeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CollectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +27,33 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/watches',[HomeController::class, 'watches'])->name('watches');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
 
-Route::get('/dashboard',[MainController::class, 'index'])->name('dashboard');
+Route::get('/dashboard',[MainController::class, 'index'])->middleware(['auth'])->name('dashboard');
 Route::get('/products',[MainController::class, 'product'])->name('products');
 Route::get('/create_product',[MainController::class, 'create_product'])->name('create_product');
 
-Route::get('/category',[MainController::class, 'category'])->name('category');
+// Route::get('/category',[MainController::class, 'category'])->name('category');
+// Route::get('/category',[CategoryController::class, 'index'])->name('category');
+Route::resource('category', CategoryController::class)->middleware(['auth']);
+Route::resource('size', SizeController::class)->middleware(['auth']);
+Route::resource('collections', CollectionController::class)->middleware(['auth']);
+
+Route::resource('collections.category', CollectionController::class)->shallow();
+// Route::get('/collections/{cat_id}',[CollectionController::class, 'category']);
 
 //collections
-Route::get('/all_collections',[MainController::class, 'all_collections'])->name('collections');
+// Route::get('/all_collections',[MainController::class, 'all_collections'])->name('collections');
+// Route::get('/create_collection',[MainController::class, 'create_collection'])->name('create_collection');
 
+
+Route::get('/register', function () {
+    return view('auth.register');
+});
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 // Route::get('/dashboard', function () {
 //     return view('dashboard.index');
 // });

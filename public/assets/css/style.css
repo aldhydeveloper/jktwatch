@@ -23907,7 +23907,7 @@ code {
 .ajax-upload-dragdrop .btn-fw.ajax-file-upload,
 .swal2-modal .swal2-buttonswrapper .btn-fw.swal2-styled,
 .wizard > .actions a.btn-fw {
-    min-width: 150px;
+    width: 50px;
 }
 .btn.btn-sm,
 .btn-group-sm > .btn,

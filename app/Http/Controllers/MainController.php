@@ -29,4 +29,9 @@ class MainController extends Controller
     {
         return view("dashboard.collections.index");
     }
+    
+    function create_collection()
+    {
+        return view("dashboard.collections.create");
+    }
 }

@@ -6,7 +6,12 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Category</h4>
+                        <div class="d-flex flex-row justify-content-between">
+                            <h4 class="card-title">Category</h4>
+
+                            <a href="{{ url('category/create') }}" class="btn btn-info btn-rounded btn-fw" id="create_category"
+                                style="width: 40px; font-size:21px">+</a>
+                        </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -19,27 +24,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td> 1 </td>
-                                        <td> Man </td>
-                                        <td> <i class="mdi mdi-border-color"></i> </td>
-                                        <td> <i class="mdi mdi-delete-forever"></i> </td>
+                                    @foreach ($category as $key => $value)
+                                        <tr>
+                                            <td> {{ $value->id }} </td>
+                                            <td> {{ $value->cat_name }} </td>
+                                            <td> <a href="/category/{{ $value->id }}/edit" class="btn  btn-primary "
+                                                    id="update" style="width: 40px; font-size:12px"><i
+                                                        class="bi bi-pencil-fill" style="margin-left: 0 "></i></a>
+                                                {{-- <button type="button" class="btn  btn-primary "><i
+                                                        class="bi bi-pencil-fill" style="margin-right: 0 "></i></button> --}}
+                                            </td>
+                                            <td>
+                                                <form action="/category/{{ $value->id }}" method="post">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="btn  btn-danger "
+                                                        onclick="return confirm('Are you sure ?')"><i class="bi bi-trash"
+                                                            style="margin-right: 0"></i></button>
+                                                </form>
+                                            </td>
 
-                                    </tr>
-                                    <tr>
-                                        <td> 2 </td>
-                                        <td> Sports </td>
-                                        <td> <i class="mdi mdi-border-color"></i> </td>
-                                        <td> <i class="mdi mdi-delete-forever"></i> </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td> 3 </td>
-                                        <td> Women </td>
-                                        <td> <i class="mdi mdi-border-color"></i> </td>
-                                        <td> <i class="mdi mdi-delete-forever"></i> </td>
-
-                                    </tr>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -51,7 +57,12 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Sub Category</h4>
+
+                        <div class="d-flex flex-row justify-content-between">
+                            <h4 class="card-title">Size</h4>
+                            <a href="{{ url('size/create') }}" class="btn btn-info btn-rounded btn-fw" id="create_category"
+                                style="width: 40px; font-size:21px">+</a>
+                        </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -64,55 +75,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td> 1 </td>
-                                        <td> 26mm </td>
-                                        <td> <i class="mdi mdi-border-color"></i> </td>
-                                        <td> <i class="mdi mdi-delete-forever"></i> </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td> 2 </td>
-                                        <td> 28mm </td>
-                                        <td> <i class="mdi mdi-border-color"></i> </td>
-                                        <td> <i class="mdi mdi-delete-forever"></i> </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td> 3 </td>
-                                        <td> 31mm </td>
-                                        <td> <i class="mdi mdi-border-color"></i> </td>
-                                        <td> <i class="mdi mdi-delete-forever"></i> </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td> 4 </td>
-                                        <td> 36mm </td>
-                                        <td> <i class="mdi mdi-border-color"></i> </td>
-                                        <td> <i class="mdi mdi-delete-forever"></i> </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td> 4 </td>
-                                        <td> 40mm </td>
-                                        <td> <i class="mdi mdi-border-color"></i> </td>
-                                        <td> <i class="mdi mdi-delete-forever"></i> </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td> 5 </td>
-                                        <td> 41mm </td>
-                                        <td> <i class="mdi mdi-border-color"></i> </td>
-                                        <td> <i class="mdi mdi-delete-forever"></i> </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td> 6 </td>
-                                        <td> 42mm </td>
-                                        <td> <i class="mdi mdi-border-color"></i> </td>
-                                        <td> <i class="mdi mdi-delete-forever"></i> </td>
-
-                                    </tr>
+                                    <?php $num = 0; ?>
+                                    @foreach ($data_size as $key => $value)
+                                        <?php $num++; ?>
+                                        <tr>
+                                            <td> {{ $num }} </td>
+                                            <td> {{ $value->name }} </td>
+                                            <td> <a href="/size/{{ $value->id }}/edit" class="btn  btn-primary "
+                                                    id="update" style="width: 40px; font-size:12px"><i
+                                                        class="bi bi-pencil-fill" style="margin-left: 0 "></i></a>
+                                                {{-- <button type="button" class="btn  btn-primary "><i
+                                                        class="bi bi-pencil-fill" style="margin-right: 0 "></i></button> --}}
+                                            </td>
+                                            <td>
+                                                <form action="/size/{{ $value->id }}" method="post">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="btn  btn-danger "
+                                                        onclick="return confirm('Are you sure ?')"><i class="bi bi-trash"
+                                                            style="margin-right: 0"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -120,5 +105,6 @@
                 </div>
             </div>
         </div>
+
     </div>
 @endsection

@@ -166,6 +166,43 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Product</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th> Image </th>
+                                        <th> Name </th>
+                                        <th> Category </th>
+                                        <th> Sub Category </th>
+                                        <th> Price </th>
+                                        <th> Detail </th>
+                                        <th> Upload Date </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img src="img/logo_white_circle_black.png" alt="logo"></td>
+                                        <td> Example Watch1 </td>
+                                        <td> Man </td>
+                                        <td> 36mm </td>
+                                        <td> Rp 3.000.000 </td>
+                                        <td> Lorem ipsum dolor sit amet consectetur adipisicing elit. </td>
+                                        <td>
+                                            08 Oct 2022
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 @endsection

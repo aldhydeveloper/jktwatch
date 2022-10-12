@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    
+    protected $table = "categories";
+
+
+    protected $fillable = ["cat_name","deleted"];
+
+    // public function collections()
+    // {
+    //     return $this->belongsToMany(Collection::class);
+    // }
+
 }

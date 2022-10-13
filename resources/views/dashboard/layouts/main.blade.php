@@ -26,16 +26,16 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     {{-- <link rel="stylesheet" href="assets/css/style.css"> --}}
     <!-- End layout styles -->
     <link href="{{ asset('img/logo_white_square_black.jpg') }}" rel="icon" />
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -47,7 +47,7 @@
 
             @include('dashboard.layouts.header')
 
-            <div class="main-panel">
+            <div class="main-panel ">
                 @yield('content')
             </div>
 
@@ -86,6 +86,7 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+    @yield('script')
     {{-- <script src="assets/js/dashboard.js"></script> --}}
     <!-- End custom js for this page -->
 </body>

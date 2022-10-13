@@ -11,9 +11,11 @@ class Collection extends Model
 
     protected $guarded = ['id'];
 
-    public function category()
+    public function sizes()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(\App\Models\Size::class, 'size_id');
     }
+
+
 
 }

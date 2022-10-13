@@ -36,6 +36,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="category">Category</label>
+                                    {{-- <div class="d-flex flex-row align-items-center">
+                                        @foreach ($category as $key => $value)
+                                            <div class="form-check px-4">
+                                                <input class="form-check-input" type="checkbox" value="{{ $value->id }}"
+                                                    id="category" name="category">
+
+                                                <label class="form-check-label-color"
+                                                    for="name">{{ $value->cat_name }}</label>
+                                            </div>
+                                        @endforeach
+                                    </div> --}}
                                     <select class="form-control form-control-lg bg-light" id="category" name="category">
 
                                         @foreach ($category as $key => $value)

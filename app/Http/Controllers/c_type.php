@@ -7,24 +7,21 @@ use App\Models\Category;
 use App\Models\Size;
 use App\Models\Dials;
 use App\Models\Type;
-use App\DataTables\CategoryDataTable;
 
-class CategoryController extends Controller
+class c_type extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryDataTable $dt)
+    public function index()
     {
         $category = Category::where('deleted', false)->get();
         $data_size = Size::where('deleted', false)->get();
         $data_dials = Dials::where('deleted', false)->get();
         $data_type = Type::where('deleted', false)->get();
          return view('dashboard.category.index', compact('category','data_size','data_dials','data_type'));
-        // dd($dt);
-        // return $dt->render('dashboard.category.index');
     }
 
     /**
@@ -34,12 +31,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-
-        $model = new Category(); 
+        $model = new Type(); 
         
          return view('dashboard.category.create_category', compact('model'));
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -48,12 +44,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Category();
-        $model->cat_name = $request->cat_name;
+        $model = new Type();
+        $model->cat_id = $request->cat_id;
+        $model->size_id = $request->size_id;
+        $model->dial_id = $request->dial_id;
+        $model->year = $request->year;
         $model->deleted = false;
         $model->save();
 
-        return redirect('category');
     }
 
     /**
@@ -73,10 +71,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        
-         return view('dashboard.category.edit_category', compact('category'));
+        //
     }
 
     /**
@@ -88,12 +85,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Category::find($id);
-        $model->cat_name = $request->cat_name;
-        $model->deleted = false;
-        $model->save();
-
-        return redirect('category');
+        //
     }
 
     /**
@@ -104,10 +96,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-         $model = Category::find($id);
-        $model->deleted = true;
-        $model->save();
-
-        return redirect('category');
+        //
     }
 }

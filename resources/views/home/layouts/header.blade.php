@@ -16,9 +16,9 @@
         </ul>
 
         <div class="col-md-3 text-end">
-            <a href="{{ route('dashboard') }}" class="d-block text-decoration-none text-white">
+            {{-- <a href="{{ route('dashboard') }}" class="d-block text-decoration-none text-white">
                 <i class="bi bi-person-circle fs-2"></i>
-            </a>
+            </a> --}}
         </div>
     </header>
 </div>

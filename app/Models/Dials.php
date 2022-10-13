@@ -5,21 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Dials extends Model
 {
     use HasFactory;
-    
-    protected $table = "categories";
-
-
-    protected $fillable = ["cat_name","deleted"];
-
 
     protected $attributes = [
+        'cat_id' => 1,
         'size_id' => 1,
-        'dial_id' => 1,
         'type_id' => 1,
         'year' => "2022",
     ];
-
+    
+    protected $table = "dials";
 }

@@ -78,21 +78,34 @@ class CollectionController extends Controller
      */
     public function show($id,Request $request )
     {
-        ddd($request);
+        // ddd(url()->current());
+        $size = $request->size;
         $category = Category::where('deleted', false)->get();
         $data_size = Size::where('deleted', false)->get();
         $data_collection = [];
         if ($id === 'all') {
-            $data_collection = Collection::where('deleted', false)->get();
+            $data_collection = Collection::where('deleted', false);
+            if($size){
+                $data_collection = $data_collection->where('size_id', $size);
+            }
+            $data_collection = $data_collection->get();
         }
+        // dd($data_collection);
+        
+        $title = $id;
         foreach ($category as $cat) {
             if ($cat->cat_name === $id) {
-                $data_collection = Collection::where('deleted', false)->where('cat_id', $cat->id)->get();
+                $data_collection = Collection::where('deleted', false)->where('cat_id', $cat->id);
+                if($size){
+                    $data_collection = $data_collection->where('size_id', $size);
+                    
+                }
+                $data_collection = $data_collection->get();
+                
             }
             
         }
-        
-         return view('dashboard.collections.index', compact('category','data_size','data_collection'));
+         return view('dashboard.collections.index', compact('category','data_size','data_collection','title'));
     }
 
     /**

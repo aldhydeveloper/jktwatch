@@ -20,7 +20,13 @@ class CreateCollectionsTable extends Migration
             $table->integer('price');
             $table->integer('cat_id');
             $table->integer('size_id');
-            $table->text('image');
+            $table->integer('dial_id');
+            $table->integer('type_id');
+            $table->string('year');
+            $table->text('image_thumbnail');
+            $table->text('image_1');
+            $table->text('image_2');
+            $table->text('image_3');
             $table->boolean('deleted');
             $table->timestamps();
         });

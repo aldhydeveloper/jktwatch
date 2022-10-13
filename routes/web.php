@@ -7,6 +7,8 @@ use App\Http\Controllers\SizeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\c_type;
+use App\Http\Controllers\c_dials;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,8 @@ Route::get('/create_product',[MainController::class, 'create_product'])->name('c
 Route::resource('category', CategoryController::class)->middleware(['auth']);
 Route::resource('size', SizeController::class)->middleware(['auth']);
 Route::resource('collections', CollectionController::class)->middleware(['auth']);
+Route::resource('type', c_type::class)->middleware(['auth']);
+Route::resource('dial', c_dials::class)->middleware(['auth']);
 
 Route::resource('collections.category', CollectionController::class)->shallow();
 // Route::get('/collections/{cat_id}',[CollectionController::class, 'category']);

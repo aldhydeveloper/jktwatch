@@ -19,6 +19,7 @@ class CategoryDataTable extends DataTable
      */
     public function dataTable($query)
     {
+        dd($query);
         return datatables()
             ->eloquent($query)
             ->addColumn('action', 'category.action');

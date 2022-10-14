@@ -22,4 +22,8 @@ class Category extends Model
         'year' => "2022",
     ];
 
+    public function size(){
+      $this->belongsTo(\App\Models\Size::class, 'size_id');
+    }
+
 }

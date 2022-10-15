@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Size;
 use App\Models\Collection;
+use App\Models\Dials;
 
 class CollectionController extends Controller
 {
@@ -42,8 +43,9 @@ class CollectionController extends Controller
     {   
         $category = Category::where('deleted', false)->get();
         $data_size = Size::where('deleted', false)->get();
+        $data_dials = Dials::where('deleted', false)->get();
         
-         return view('dashboard.collections.create',  compact('category','data_size'));
+         return view('dashboard.collections.create',  compact('category','data_size','data_dials'));
     }
 
     /**
@@ -59,11 +61,17 @@ class CollectionController extends Controller
         // $request->file('image')->store('collections')
         $model = new Collection();
         $model->name = $request->name;
-        $model->color = $request->color;
+        $model->color = "black";
         $model->price = $request->price;
         $model->cat_id = $request->category;
+        $model->dial_id = $request->dial;
         $model->size_id = $request->size;
-        $model->image = $request->file('image')->store('collections');
+        $model->type_id = 0;
+        $model->year = "2022";
+        $model->image_thumbnail = $request->file('image')->store('collections');
+        $model->image_1 = $request->file('image')->store('collections');
+        $model->image_2 = $request->file('image')->store('collections');
+        $model->image_3 = $request->file('image')->store('collections');
         $model->deleted = false;
         $model->save();
 
@@ -195,9 +203,9 @@ class CollectionController extends Controller
         if($arr_size->count() > 0){
           $size[$arr_size->id] = $arr_size->name; 
         }
-        if($arr_type->count() > 0){
-          $type[$arr_type->id] = $arr_type->name; 
-        }
+        // if($arr_type->count() > 0){
+        //   $type[$arr_type->id] = $arr_type->name; 
+        // }
         if($arr_category->count() > 0){
           $category[$arr_category->id] = $arr_category->cat_name; 
         }

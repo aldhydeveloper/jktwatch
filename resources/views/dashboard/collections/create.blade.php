@@ -26,12 +26,17 @@
                                         name="price" placeholder="price">
                                 </div>
                                 <div class="form-group">
-                                    <label for="category">Color</label>
-                                    <select class="form-control form-control-lg bg-light" id="color" name="color">
-                                        <option class="text-black" value="Black">Black</option>
+                                    <label for="category">Dials</label>
+                                    <select class="form-control form-control-lg bg-light" id="dial" name="dial">
+
+                                        @foreach ($data_dials as $key => $value)
+                                            <option class="text-black" value="{{ $value->id }}">{{ $value->name }}
+                                            </option>
+                                        @endforeach
+                                        {{-- <option class="text-black" value="Black">Black</option>
                                         <option class="text-black" value="Silver">Silver</option>
                                         <option class="text-black" value="Gold">Gold</option>
-                                        <option class="text-black" value="Navi">Navi</option>
+                                        <option class="text-black" value="Navi">Navi</option> --}}
                                     </select>
                                 </div>
                                 <div class="form-group">

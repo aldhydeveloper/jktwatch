@@ -5,7 +5,7 @@
         <div class="col-12 grid-margin">
             <div class="card py-2 px-2">
                 <div class="d-flex flex-row justify-content-between align-items-center">
-                    <h4>{{ $title }}</h4>
+                    <h4>COLLECTIONS</h4>
                     <a href="{{ url('collections/create') }}" class="btn btn-info btn-fw text-center" id="create_category"
                         style="width: 30px; ">+</a>
                 </div>

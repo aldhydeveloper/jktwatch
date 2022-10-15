@@ -15,11 +15,5 @@ class Category extends Model
     protected $fillable = ["cat_name","deleted"];
 
 
-    protected $attributes = [
-        'size_id' => 1,
-        'dial_id' => 1,
-        'type_id' => 1,
-        'year' => "2022",
-    ];
 
 }

@@ -35,7 +35,7 @@ class c_dials extends Controller
         
         $model = new Dials(); 
         
-         return view('dashboard.category.create_category', compact('model'));
+         return view('dashboard.category.create_dials', compact('model'));
     }
 
     /**
@@ -48,10 +48,6 @@ class c_dials extends Controller
     {
         $model = new Dials();
         $model->name = $request->name;
-        $model->cat_id = $request->cat_id;
-        $model->size_id = $request->size_id;
-        $model->type_id = $request->type_id;
-        $model->year = $request->year;
         $model->deleted = false;
         $model->save();
 

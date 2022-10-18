@@ -16,4 +16,8 @@ class Category extends Model
 
 
 
+    public function size(){
+      $this->belongsTo(\App\Models\Size::class, 'size_id');
+    }
+
 }

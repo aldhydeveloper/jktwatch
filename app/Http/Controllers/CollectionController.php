@@ -75,7 +75,7 @@ class CollectionController extends Controller
         $model->deleted = false;
         $model->save();
 
-        return redirect('collections');
+        return redirect('collections\all');
     }
 
     /**

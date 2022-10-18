@@ -71,8 +71,44 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>File upload</label>
+                                    <label>Image Thumbnail</label>
                                     <input type="file" name="image" class="file-upload-default" id="image">
+                                    <div class="input-group col-xs-12">
+                                        <input type="text" class="form-control file-upload-info bg-light text-dark"
+                                            id="image" name="image" placeholder="Upload Image" disabled>
+                                        <span class="input-group-append">
+                                            <button class="file-upload-browse btn btn-primary"
+                                                type="button">Upload</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image Cover 1</label>
+                                    <input type="file" name="image" class="file-upload-default" id="image-1">
+                                    <div class="input-group col-xs-12">
+                                        <input type="text" class="form-control file-upload-info bg-light text-dark"
+                                            id="image" name="image" placeholder="Upload Image" disabled>
+                                        <span class="input-group-append">
+                                            <button class="file-upload-browse btn btn-primary"
+                                                type="button">Upload</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image Cover 2</label>
+                                    <input type="file" name="image" class="file-upload-default" id="image-2">
+                                    <div class="input-group col-xs-12">
+                                        <input type="text" class="form-control file-upload-info bg-light text-dark"
+                                            id="image" name="image" placeholder="Upload Image" disabled>
+                                        <span class="input-group-append">
+                                            <button class="file-upload-browse btn btn-primary"
+                                                type="button">Upload</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Image Cover 3</label>
+                                    <input type="file" name="image" class="file-upload-default" id="image-3">
                                     <div class="input-group col-xs-12">
                                         <input type="text" class="form-control file-upload-info bg-light text-dark"
                                             id="image" name="image" placeholder="Upload Image" disabled>

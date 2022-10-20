@@ -25,50 +25,36 @@
                                     <input type="text" class="form-control bg-light text-dark" id="price"
                                         name="price" placeholder="price">
                                 </div>
-                                <div class="form-group">
-                                    <label for="category">Dials</label>
-                                    <select class="form-control form-control-lg bg-light" id="dial" name="dial">
+                                <div class="form-group mt-4">
+                                    <label for="name">Description</label>
+                                    <input type="text" class="form-control bg-light text-dark" id="desc"
+                                        name="desc" placeholder="description">
+                                </div>
 
-                                        @foreach ($data_dials as $key => $value)
-                                            <option class="text-black" value="{{ $value->id }}">{{ $value->name }}
-                                            </option>
-                                        @endforeach
-                                        {{-- <option class="text-black" value="Black">Black</option>
-                                        <option class="text-black" value="Silver">Silver</option>
-                                        <option class="text-black" value="Gold">Gold</option>
-                                        <option class="text-black" value="Navi">Navi</option> --}}
-                                    </select>
+                                <div class="form-group mt-4">
+                                    <label for="name">Year</label>
+                                    <input type="text" class="form-control bg-light text-dark" id="Year"
+                                        name="Year" placeholder="description">
                                 </div>
                                 <div class="form-group">
-                                    <label for="category">Category</label>
-                                    {{-- <div class="d-flex flex-row align-items-center">
-                                        @foreach ($category as $key => $value)
-                                            <div class="form-check px-4">
-                                                <input class="form-check-input" type="checkbox" value="{{ $value->id }}"
-                                                    id="category" name="category">
-
-                                                <label class="form-check-label-color"
-                                                    for="name">{{ $value->cat_name }}</label>
-                                            </div>
-                                        @endforeach
-                                    </div> --}}
-                                    <select class="form-control form-control-lg bg-light" id="category" name="category">
-
-                                        @foreach ($category as $key => $value)
-                                            <option class="text-black" value="{{ $value->id }}">{{ $value->cat_name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="size">Size</label>
-                                    <select class="form-control form-control-lg bg-light" id="size" name="size">
-
-                                        @foreach ($data_size as $key => $value)
-                                            <option class="text-black" value="{{ $value->id }}">{{ $value->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                    <div class="col-md-12 ">
+                                        <label for="validationTagsThreshold" class="form-label">Tags</label>
+                                        <select class="form-select" id="validationTagsThreshold" name="tags[]" multiple
+                                            data-allow-clear="true" data-suggestions-threshold="0">
+                                            <option selected disabled hidden value="">Choose a tag...</option>
+                                            @foreach ($category as $key => $value)
+                                                <option class="text-black" value="{{ $value->id }}">
+                                                    {{ $value->cat_name }}
+                                                </option>
+                                            @endforeach
+                                            @foreach ($data_size as $key => $value)
+                                                <option class="text-black" value="{{ $value->id }}">
+                                                    {{ $value->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <div class="invalid-feedback">Please select a valid tag.</div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Image Thumbnail</label>
@@ -118,6 +104,7 @@
                                         </span>
                                     </div>
                                 </div>
+
                                 <button type="submit" class="btn btn-primary mr-2 mt-2">Submit</button>
                                 <button class="btn btn-dark mt-2">Cancel</button>
                             </form>
@@ -127,4 +114,13 @@
             </div>
         </form>
     </div>
+@endsection
+
+@section('script')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js" type="module"></script>
+
+    <script type="module">
+    import Tags from "https://cdn.jsdelivr.net/gh/lekoala/bootstrap5-tags@master/tags.js";
+    Tags.init("select");
+  </script>
 @endsection

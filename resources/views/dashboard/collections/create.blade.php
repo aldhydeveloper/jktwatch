@@ -43,12 +43,12 @@
                                             data-allow-clear="true" data-suggestions-threshold="0">
                                             <option selected disabled hidden value="">Choose a tag...</option>
                                             @foreach ($category as $key => $value)
-                                                <option class="text-black" value="{{ $value->id }}">
+                                                <option class="text-black" value="category-{{ $value->id }}">
                                                     {{ $value->cat_name }}
                                                 </option>
                                             @endforeach
                                             @foreach ($data_size as $key => $value)
-                                                <option class="text-black" value="{{ $value->id }}">
+                                                <option class="text-black" value="size-{{ $value->id }}">
                                                     {{ $value->name }}
                                                 </option>
                                             @endforeach

@@ -18,10 +18,11 @@ class CreateCollectionsTable extends Migration
             $table->string('name');
             $table->string('color');
             $table->integer('price');
-            $table->integer('cat_id');
-            $table->integer('size_id');
-            $table->integer('dial_id');
-            $table->integer('type_id');
+            $table->text('tags');
+            // $table->integer('cat_id');
+            // $table->integer('size_id');
+            // $table->integer('dial_id');
+            // $table->integer('type_id');
             $table->string('year');
             $table->text('image_thumbnail');
             $table->text('image_1');

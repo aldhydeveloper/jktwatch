@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Size;
 use App\Models\Collection;
 use App\Models\Dials;
+use Illuminate\Support\Facades\DB;
 
 class CollectionController extends Controller
 {
@@ -57,21 +58,42 @@ class CollectionController extends Controller
     public function store(Request $request)
     {
 
-        // ddd($request);
+        // dd($request->tags);
+        $tags = [];
+        $i = 0;
+        if($request->tags){
+          foreach($request->tags as $v){
+            $arr_tags = explode('-' ,$v);
+            if(!isset($tags[$arr_tags[0]])){
+              $i=0;
+              $tags[$arr_tags[0]][$i] = (int) $arr_tags[1];
+              $i++;
+            }else{
+              $tags[$arr_tags[0]][$i] = (int) $arr_tags[1];
+              $i++;
+            }
+          }
+        }
+            // dd($tags);
         // $request->file('image')->store('collections')
         $model = new Collection();
         $model->name = $request->name;
         $model->color = "black";
         $model->price = $request->price;
-        $model->cat_id = $request->category;
-        $model->dial_id = $request->dial;
-        $model->size_id = $request->size;
-        $model->type_id = 0;
+        $model->tags = !empty($tags) ? json_encode($tags) : null;
+        // $model->cat_id = $request->category;
+        // $model->dial_id = $request->dial;
+        // $model->size_id = $request->size;
+        // $model->type_id = 0;
         $model->year = "2022";
-        $model->image_thumbnail = $request->file('image')->store('collections');
-        $model->image_1 = $request->file('image')->store('collections');
-        $model->image_2 = $request->file('image')->store('collections');
-        $model->image_3 = $request->file('image')->store('collections');
+        $model->image_thumbnail = '';
+        $model->image_1 = '';
+        $model->image_2 = '';
+        $model->image_3 = '';
+        // $model->image_thumbnail = $request->file('image')->store('collections');
+        // $model->image_1 = $request->file('image')->store('collections');
+        // $model->image_2 = $request->file('image')->store('collections');
+        // $model->image_3 = $request->file('image')->store('collections');
         $model->deleted = false;
         $model->save();
 
@@ -86,7 +108,7 @@ class CollectionController extends Controller
      */
     public function show($id,Request $request )
     {
-        // ddd(url()->current());
+        // dd($query);
         // $size = $request->size;
         // $category = Category::where('deleted', false)->get();
         // $data_size = Size::where('deleted', false)->get();
@@ -121,13 +143,55 @@ class CollectionController extends Controller
         $category = $request->category;
         $dial = $request->dial;
         $type = $request->type;
-        $collection = $this->getCollection($size, $category, $dial, $type);
+        $collection = $this->getCollection_v2($request);
+        
+        $tags = new \stdClass;
+        $tags->category = [];
+        $tags->size = [];
+        $tags->dial = [];
+        foreach($collection as $k => $v){
+          $arr_tags = json_decode($v->tags);
+          if(isset($arr_tags->category)){
+            foreach($arr_tags->category as $kCat => $vCat){
+              $catModel = Category::find($vCat);
+              if($catModel){
+                $tags->category[$vCat] = $catModel->cat_name;
+              }
+            }
+          }
+
+          $collection[$k]->size = [];   
+          if(isset($arr_tags->size)){
+            foreach($arr_tags->size as $kSize => $vSize){
+              $sizeModel = Size::find($vSize);
+              if($sizeModel){
+                $collection[$k]->size[$vSize] = $sizeModel->name;
+                $tags->size[$vSize] = $sizeModel->name;
+              }
+            }
+          }
+
+          if(isset($arr_tags->dial)){
+            foreach($arr_tags->dial as $kDial => $vDial){
+              $dialModel = Dials::find($vDial);
+              if($sizeModel){
+                $tags->dial[$vDial] = $dialModel->name;
+              }
+            }
+          }
+          // foreach(){
+
+          // } 
+        }
+        // dd($tags);
+        // $collection = $this->getCollection($size, $category, $dial, $type);
         // dd($collection);
         //  return view('dashboard.collections.index', compact('collection','title'));
         //  return view('dashboard.collections.index', compact('category','data_size','data_collection','title'));
         return view('dashboard.collections.index', [
-          'data' => $collection,
+          'collection' => $collection,
           'title' => $title,
+          'tags' => $tags,
           'q' => $q,
           'size' => $size,
           'category' => $category,
@@ -168,6 +232,20 @@ class CollectionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getCollection_v2($request){
+      $params = $request->all();
+      $contains = [];
+      foreach($params as $k => $v){
+        $contains[] = "JSON_CONTAINS(tags, $v, '$.$k') > 0";
+      }
+      $where = implode(' AND ', $contains);
+      $where = !empty($where) ? $where . ' AND deleted = 0' : 'deleted = 0';
+      // dd($where);
+      $collection = DB::select("SELECT * FROM collections WHERE $where ");
+
+      return $collection;
     }
 
     public function getCollection($size, $category, $dial, $type){

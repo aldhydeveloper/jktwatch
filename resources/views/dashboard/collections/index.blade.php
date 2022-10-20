@@ -18,7 +18,7 @@
                     </div> --}}
                     <div class="col-12">
                         <div class="row">
-                            @foreach ($data->collection as $key => $value)
+                            @foreach ($collection as $key => $value)
                                 @php $value = (object) $value @endphp
                                 <div class="col-lg-3 col-12">
                                     <div class="card shadow-sm  my-3">
@@ -28,7 +28,7 @@
 
                                         <div class="card-body text-center">
                                             <h4>{{ $value->name }}</h4>
-                                            <h5>{{ $value->color }} - {{ $value->size['name'] }}</h5>
+                                            <h5>{{ $value->color }} - {{ implode(', ', $value->size) }}</h5>
                                             <a>IDR {{ number_format($value->price, 0) }}</a>
                                             <p>2022</p>
                                         </div>
@@ -47,32 +47,32 @@
                     <div class="row">
                         <div class="col-12 mb-2">
                             <p class="mb-1">Size :</p>
-                            <a href="{{ url()->current() }}{{ $category ? '?category=' . $category : '' }}{{ $dial ? '&dial=' . $dial : '' }}{{ $type ? '&category=' . $type : '' }}"
+                            <a href="{{ url()->current() }}{{ $category ? '?category=' . $category . ($dial ? '&' : '') : ($dial ? '?' : '') }}{{ $dial ? 'dial=' . $dial . ($type ? '&' : '') : ($type ? '?' : '') }}{{ $type ? '&type=' . $type : '' }}"
                                 class="btn  mb-3 {{ !$size ? 'btn-dark' : 'btn-light' }}">All</a>
-                            @foreach ($data->size as $key => $value)
-                                <a href="{{ url()->current() }}?size={{ $key }}{{ $category ? '&category=' . $category : '' }}{{ $dial ? '&dial=' . $dial : '' }}{{ $type ? '&category=' . $type : '' }}"
+                            @foreach ($tags->size as $key => $value)
+                                <a href="{{ url()->current() }}?size={{ $key }}{{ $category ? '&category=' . $category : '' }}{{ $dial ? '&dial=' . $dial : '' }}{{ $type ? '&type=' . $type : '' }}"
                                     class="btn  mb-3 {{ $size == $key ? 'btn-dark' : 'btn-light' }}">{{ $value }}</a>
                             @endforeach
                         </div>
                         <div class="col-12 mb-2">
                             <p class="mb-1">Kategori :</p>
-                            <a href="{{ url()->current() }}{{ $size ? '&size=' . $category : '' }}{{ $dial ? '&dial=' . $dial : '' }}{{ $type ? '&category=' . $type : '' }}"
+                            <a href="{{ url()->current() }}{{ $size ? '?size=' . $size . ($dial ? '&' : '') : ($dial ? '?' : '') }}{{ $dial ? 'dial=' . $dial . ($type ? '&' : '') : ($type ? '?' : '') }}{{ $type ? 'type=' . $type : '' }}"
                                 class="btn  mb-3 {{ !$category ? 'btn-dark' : 'btn-light' }}">All</a>
-                            @foreach ($data->category as $key => $value)
-                                <a href="{{ url()->current() }}?category={{ $key }}{{ $size ? '&size=' . $size : '' }}{{ $dial ? '&dial=' . $dial : '' }}{{ $type ? '&category=' . $type : '' }}"
+                            @foreach ($tags->category as $key => $value)
+                                <a href="{{ url()->current() }}?category={{ $key }}{{ $size ? '&size=' . $size : '' }}{{ $dial ? '&dial=' . $dial : '' }}{{ $type ? '&type=' . $type : '' }}"
                                     class="btn  mb-3 {{ $category == $key ? 'btn-dark' : 'btn-light' }}">{{ $value }}</a>
                             @endforeach
                         </div>
                         <div class="col-12 mb-2">
                             <p class="mb-1">Dial :</p>
-                            <a href="{{ url()->current() }}{{ $category ? '&category=' . $category : '' }}{{ $size ? '&dial=' . $size : '' }}{{ $type ? '&category=' . $type : '' }}"
+                            <a href="{{ url()->current() }}{{ $category ? '?category=' . $category . ($size ? '&' : '') : ($size ? '?' : '') }}{{ $size ? 'size=' . $size . ($type ? '&' : '') : ($type ? '?' : '') }}{{ $type ? 'type=' . $type : '' }}"
                                 class="btn  mb-3 {{ !$dial ? 'btn-dark' : 'btn-light' }}">All</a>
-                            @foreach ($data->dial as $key => $value)
+                            @foreach ($tags->dial as $key => $value)
                                 <a href="{{ url()->current() }}?dial={{ $key }}{{ $size ? '&size=' . $size : '' }}{{ $category ? '&category=' . $category : '' }}{{ $type ? '&type=' . $type : '' }}"
                                     class="btn  mb-3 {{ $dial == $key ? 'btn-dark' : 'btn-light' }}">{{ $value }}</a>
                             @endforeach
                         </div>
-                        <div class="col-12 mb-2">
+                        {{-- <div class="col-12 mb-2">
                             <p class="mb-1">Type :</p>
                             <a href="{{ url()->current() }}{{ $category ? '&category=' . $category : '' }}{{ $dial ? '&dial=' . $dial : '' }}{{ $size ? '&category=' . $size : '' }}"
                                 class="btn  mb-3 {{ !$type ? 'btn-dark' : 'btn-light' }}">All</a>
@@ -80,7 +80,7 @@
                                 <a href="{{ url()->current() }}?type={{ $key }}{{ $size ? '&size=' . $size : '' }}{{ $category ? '&category=' . $category : '' }}{{ $dial ? '&category=' . $dial : '' }}"
                                     class="btn  mb-3 {{ $type == $key ? 'btn-dark' : 'btn-light' }}">{{ $value }}</a>
                             @endforeach
-                        </div>
+                        </div> --}}
                     </div>
                     <a href="{{ url('collections/create') }}" class="btn btn-info d-block position-absolute">Create</a>
                 </div>

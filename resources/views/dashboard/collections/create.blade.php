@@ -9,8 +9,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-row justify-content-between align-items-center">
-                                <a href="{{ url('size/create') }}" class="mdi mdi-keyboard-backspace " id="create_category"
-                                    style="font-size:21px"></a>
+                                <a href="{{ url('collections/all') }}" class="mdi mdi-keyboard-backspace "
+                                    id="create_category" style="font-size:21px"></a>
 
                                 <h4>Create Collection</h4>
                             </div>

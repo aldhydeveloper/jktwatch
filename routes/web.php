@@ -42,8 +42,10 @@ Route::resource('type', c_type::class)->middleware(['auth']);
 Route::resource('dial', c_dials::class)->middleware(['auth']);
 
 Route::resource('collections.category', CollectionController::class)->shallow();
+Route::get('collections/form/{id}', [CollectionController::class, 'form']);
 
-Route::get('collection/all', [CollectionController::class, 'getCollection']);
+// Route::get('collection/all', [CollectionController::class, 'getCollection']);
+// Route::get('collections/form/$1', CollectionController::class, 'form')->middleware(['auth']);
 // Route::get('/collections/{cat_id}',[CollectionController::class, 'category']);
 
 //collections

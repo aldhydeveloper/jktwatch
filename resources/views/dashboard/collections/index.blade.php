@@ -21,18 +21,20 @@
                             @foreach ($collection as $key => $value)
                                 @php $value = (object) $value @endphp
                                 <div class="col-lg-3 col-12">
-                                    <div class="card shadow-sm  my-3">
-                                        <img class=" card-img-top" width="80%" height="225"
-                                            src="{{ asset('storage/' . $value->image_thumbnail) }}" focusable="false">
-                                        </img>
+                                    <a href="{{ url('collections/form') . '/' . $value->id }}">
+                                        <div class="card shadow-sm  my-3">
+                                            <img class=" card-img-top" width="80%" height="225"
+                                                src="{{ asset('storage/' . $value->image_thumbnail) }}" focusable="false">
+                                            </img>
 
-                                        <div class="card-body text-center">
-                                            <h4>{{ $value->name }}</h4>
-                                            <h5>{{ $value->color }} - {{ implode(', ', $value->size) }}</h5>
-                                            <a>IDR {{ number_format($value->price, 0) }}</a>
-                                            <p>2022</p>
+                                            <div class="card-body text-center">
+                                                <h4>{{ $value->name }}</h4>
+                                                <h5>{{ $value->color }} - {{ implode(', ', $value->size) }}</h5>
+                                                <a>IDR {{ number_format($value->price, 0) }}</a>
+                                                <p>2022</p>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             @endforeach
                         </div>

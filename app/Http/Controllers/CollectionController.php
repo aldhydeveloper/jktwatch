@@ -50,6 +50,41 @@ class CollectionController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function form($id)
+    {
+        $category = Category::where('deleted', false)->get();
+        $data_size = Size::where('deleted', false)->get();
+        $data_dials = Dials::where('deleted', false)->get();
+
+        $collections = Collection::find($id);
+        $tags = [];
+        $i = 0;
+        if($collections){
+          $arr_tags = json_decode($collections->tags);
+          foreach($arr_tags as $k => $v){
+            foreach($v as $v2){
+              $tags[$i] = $k . '-' .$v2;
+              $i++;
+            }
+            // if(isset($v->category)){
+            //   foreach($v->category){
+
+            //   }
+            // }
+          }
+          // dd($tags);
+        }
+        // dd($collections);
+        
+         return view('dashboard.collections.create',  compact('category','data_size','data_dials', 'collections', 'tags'));
+        //
+    }
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -76,7 +111,12 @@ class CollectionController extends Controller
         }
             // dd($tags);
         // $request->file('image')->store('collections')
-        $model = new Collection();
+        $id = $request->id;
+        if(!$id){
+          $model = new Collection();
+        }else{
+          $model = Collection::find($id);
+        }
         $model->name = $request->name;
         $model->color = "black";
         $model->price = $request->price;
@@ -90,8 +130,19 @@ class CollectionController extends Controller
         $model->image_1 = '';
         $model->image_2 = '';
         $model->image_3 = '';
-        // $model->image_thumbnail = $request->file('image')->store('collections');
-        // $model->image_1 = $request->file('image')->store('collections');
+        
+        if($_FILES['image']['name'] != ''){
+          $model->image_thumbnail = $request->file('image')->store('collections');
+        }
+        if($_FILES['image_1']['name'] != ''){
+          $model->image_thumbnail = $request->file('image_1')->store('collections');
+        }
+        if($_FILES['image_2']['name'] != ''){
+          $model->image_thumbnail = $request->file('image_2')->store('collections');
+        }
+        if($_FILES['image_3']['name'] != ''){
+          $model->image_thumbnail = $request->file('image_3')->store('collections');
+        }
         // $model->image_2 = $request->file('image')->store('collections');
         // $model->image_3 = $request->file('image')->store('collections');
         $model->deleted = false;
@@ -100,6 +151,7 @@ class CollectionController extends Controller
         return redirect('collections\all');
     }
 
+    
     /**
      * Display the specified resource.
      *
@@ -200,16 +252,6 @@ class CollectionController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

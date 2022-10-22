@@ -8,7 +8,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Create Category</h4>
+                        <h4 class="card-title">Create Gender</h4>
                         <form class="forms-sample">
                             <div class="form-group  mt-4">
                                 <label for="name">Name</label>

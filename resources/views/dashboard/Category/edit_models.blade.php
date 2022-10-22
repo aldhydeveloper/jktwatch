@@ -2,14 +2,19 @@
 
 @section('content')
     <div class="content-wrapper">
-        <form method="POST" action="/models/{{ $models->id }}" enctype="multipart/form-data">
-            @method('PUT')
-            @csrf
 
-            <div class="col-md-12 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Edit Model</h4>
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <a href="{{ url('category') }}" class="mdi mdi-keyboard-backspace " id="create_category"
+                            style="font-size:21px"></a>
+
+                        <h4>Edit Model</h4>
+                    </div>
+                    <form method="POST" action="/models/{{ $models->id }}" enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
                         <form class="forms-sample">
                             <div class="form-group  mt-4">
                                 <label for="name">Name</label>
@@ -29,13 +34,10 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary mr-2">Save</button>
-                            <a href="{{ url('category') }}" class="btn btn-dark">Cancel</a>
-
                         </form>
-                    </div>
+                    </form>
                 </div>
             </div>
-
-        </form>
+        </div>
     </div>
 @endsection

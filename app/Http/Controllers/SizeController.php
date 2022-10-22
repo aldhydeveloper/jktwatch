@@ -44,7 +44,7 @@ class SizeController extends Controller
     {
        $model = new Size();
         $model->name = $request->name;
-        $model->cover = "";
+        $model->cover = $request->file('cover')->store('brand');
         $model->deleted = false;
         $model->save();
 
@@ -84,6 +84,7 @@ class SizeController extends Controller
     {
         $model = Size::find($id);
         $model->name = $request->name;
+        $model->cover = $request->file('cover')->store('size');
         $model->save();
 
         return redirect('category');

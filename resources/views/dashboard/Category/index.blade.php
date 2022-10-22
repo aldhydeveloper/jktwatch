@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-row justify-content-between">
-                            <h4 class="card-title">Category</h4>
+                            <h4 class="card-title">Gender</h4>
 
                             <a href="{{ url('category/create') }}" class="btn btn-info btn-rounded btn-fw" id="create_category"
                                 style="width: 40px; font-size:21px">+</a>

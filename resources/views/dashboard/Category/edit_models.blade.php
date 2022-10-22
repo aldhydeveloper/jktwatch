@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content-wrapper">
-        <form method="POST" action="/models/{{ $models->id }}">
+        <form method="POST" action="/models/{{ $models->id }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
 
@@ -22,14 +22,14 @@
                                 <div class="input-group col-xs-12">
                                     <input type="text" class="form-control file-upload-info bg-light text-dark"
                                         id="image" name="image" placeholder="Upload Image"
-                                        value="{{ $models->cover }} disabled>
+                                        value="{{ $models->cover }}" disabled>
                                     <span class="input-group-append">
-                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                                     </span>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary mr-2">Save</button>
-                            <button class="btn btn-dark">Cancel</button>
+                            <a href="{{ url('category') }}" class="btn btn-dark">Cancel</a>
 
                         </form>
                     </div>

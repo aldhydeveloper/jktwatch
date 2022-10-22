@@ -42,7 +42,7 @@ class c_brand extends Controller
         
         $model = new Brand();
         $model->name = $request->name;
-        $model->cover = "";
+        $model->cover = $request->file('cover')->store('brand');
         $model->deleted = false;
         $model->save();
 
@@ -82,7 +82,7 @@ class c_brand extends Controller
     {
        $model = Brand::find($id);
         $model->name = $request->name;
-        $model->cover = $request->cover;
+        $model->cover = $request->file('cover')->store('brand');
         $model->deleted = false;
         $model->save();
 

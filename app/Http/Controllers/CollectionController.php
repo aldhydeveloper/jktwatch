@@ -313,7 +313,12 @@ class CollectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $model = Collection::find($id);
+        $model->deleted = true;
+        $model->save();
+
+        return redirect('collections/all');
     }
 
     public function getCollection_v2($request){

@@ -53,7 +53,7 @@ class CategoryController extends Controller
     {
         $model = new Category();
         $model->cat_name = $request->cat_name;
-        $model->cover ="";
+        $model->cover = $request->file('cover')->store('gender');
         $model->deleted = false;
         $model->save();
 
@@ -94,6 +94,7 @@ class CategoryController extends Controller
     {
         $model = Category::find($id);
         $model->cat_name = $request->cat_name;
+        $model->cover = $request->file('cover')->store('gender');
         $model->deleted = false;
         $model->save();
 

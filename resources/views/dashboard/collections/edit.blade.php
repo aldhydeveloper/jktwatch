@@ -2,18 +2,27 @@
 
 @section('content')
     <div class="content-wrapper">
-        <form action="{{ url('collections') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex flex-row justify-content-between align-items-center">
-                                <a href="{{ url('collections/all') }}" class="mdi mdi-keyboard-backspace "
-                                    id="create_category" style="font-size:21px"></a>
 
-                                <h4>Create Collection</h4>
-                            </div>
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-row justify-content-between align-items-center">
+                            <a href="{{ url('collections/all') }}" class="mdi mdi-keyboard-backspace " id="create_category"
+                                style="font-size:21px"></a>
+
+                            <h4>Create Collection</h4>
+
+                            <form action="/collections/{{ @$collections->id }}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button class="btn  btn-danger " onclick="return confirm('Are you sure ?')"><i
+                                        class="bi bi-trash"></i></button>
+                            </form>
+                        </div>
+
+                        <form action="{{ url('collections') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <form class="forms-sample ">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ @$collections->id }}" />
@@ -56,10 +65,15 @@
                                                     {{ $value->name }}
                                                 </option>
                                             @endforeach
-
                                             @foreach ($data_model as $key => $value)
                                                 <option class="text-black" value="models-{{ $value->id }}"
                                                     {{ in_array('models-' . $value->id, $tags) ? 'selected' : '' }}>
+                                                    {{ $value->name }}
+                                                </option>
+                                            @endforeach
+                                            @foreach ($data_brand as $key => $value)
+                                                <option class="text-black" value="brand-{{ $value->id }}"
+                                                    {{ in_array('brand-' . $value->id, $tags) ? 'selected' : '' }}>
                                                     {{ $value->name }}
                                                 </option>
                                             @endforeach
@@ -121,13 +135,14 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary mr-2 mt-2">Submit</button>
-                                <button class="btn btn-dark mt-2">Cancel</button>
+
                             </form>
-                        </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 @endsection
 

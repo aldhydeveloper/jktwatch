@@ -45,7 +45,7 @@ class c_models extends Controller
         // ddd($request);
         $model = new Models();
         $model->name = $request->name;
-        $model->cover = "";
+        $model->cover = $request->file('cover')->store('models');
         $model->deleted = false;
         $model->save();
 
@@ -86,7 +86,7 @@ class c_models extends Controller
     {
          $model = Models::find($id);
         $model->name = $request->name;
-        $model->cover = $request->cover;
+        $model->cover = $request->file('cover')->store('models');
         $model->deleted = false;
         $model->save();
 

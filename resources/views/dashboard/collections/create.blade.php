@@ -76,55 +76,63 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Image Thumbnail</label>
-                                    <input type="file" name="image"
-                                        class="file-upload-default @error('image') is-invalid @enderror " id="image">
+                                    <input type="file" name="image" class="file-upload-default " id="image">
                                     <div class="input-group col-xs-12">
-                                        <input type="text" class="form-control  file-upload-info bg-light text-dark"
+                                        <input type="text"
+                                            class="form-control @error('image') is-invalid @enderror  file-upload-info bg-light text-dark"
                                             id="image" name="image" placeholder="Upload Image  "
                                             value="{{ @$collections->image_thumbnail }}" disabled>
                                         <span class="input-group-append">
                                             <button class="file-upload-browse btn btn-primary"
                                                 type="button">Upload</button>
                                         </span>
+                                        <div class="invalid-feedback ">Please insert image Thumbnail</div>
                                     </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label>Image Cover 1</label>
                                     <input type="file" name="image_1" class="file-upload-default" id="image_1">
                                     <div class="input-group col-xs-12">
-                                        <input type="text" class="form-control file-upload-info bg-light text-dark"
-                                            id="image" name="image" placeholder="Upload Image"
+                                        <input type="text"
+                                            class="form-control @error('image_1') is-invalid @enderror  file-upload-info bg-light text-dark"
+                                            id="image_1" name="image_1" placeholder="Upload Image"
                                             value="{{ @$collections->image_1 }}" disabled>
                                         <span class="input-group-append">
                                             <button class="file-upload-browse btn btn-primary"
                                                 type="button">Upload</button>
                                         </span>
+                                        <div class="invalid-feedback ">Please insert image Cover 1</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Image Cover 2</label>
                                     <input type="file" name="image_2" class="file-upload-default" id="image_2">
                                     <div class="input-group col-xs-12">
-                                        <input type="text" class="form-control file-upload-info bg-light text-dark"
-                                            id="image" name="image" placeholder="Upload Image"
+                                        <input type="text"
+                                            class="form-control  @error('image_2') is-invalid @enderror  file-upload-info bg-light text-dark"
+                                            id="image_2" name="image_2" placeholder="Upload Image"
                                             value="{{ @$collections->image_2 }}" disabled>
                                         <span class="input-group-append">
                                             <button class="file-upload-browse btn btn-primary"
                                                 type="button">Upload</button>
                                         </span>
+                                        <div class="invalid-feedback ">Please insert image Cover 2</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Image Cover 3</label>
                                     <input type="file" name="image_3" class="file-upload-default" id="image_3">
                                     <div class="input-group col-xs-12">
-                                        <input type="text" class="form-control file-upload-info bg-light text-dark"
-                                            id="image" name="image" placeholder="Upload Image"
+                                        <input type="text"
+                                            class="form-control @error('image_3') is-invalid @enderror file-upload-info bg-light text-dark"
+                                            id="image_3" name="image_3" placeholder="Upload Image"
                                             value="{{ @$collections->image_3 }}" disabled>
                                         <span class="input-group-append">
                                             <button class="file-upload-browse btn btn-primary"
                                                 type="button">Upload</button>
                                         </span>
+                                        <div class="invalid-feedback ">Please insert image Cover 3</div>
                                     </div>
                                 </div>
 

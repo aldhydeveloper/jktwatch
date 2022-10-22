@@ -3,31 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Size;
-use App\Models\Dials;
-use App\Models\Type;
 use App\Models\Models;
-use App\Models\Brand;
-use App\DataTables\CategoryDataTable;
 
-class CategoryController extends Controller
+class c_models extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryDataTable $dt)
+    public function index()
     {
         $category = Category::where('deleted', false)->get();
         $data_size = Size::where('deleted', false)->get();
         $data_dials = Dials::where('deleted', false)->get();
-        $data_model = Models::where('deleted', false)->get();
-        $data_brand = Brand::where('deleted', false)->get();
-         return view('dashboard.category.index', compact('category','data_size','data_dials','data_model','data_brand'));
-        // dd($dt);
-        // return $dt->render('dashboard.category.index');
+        $data_model = Type::where('deleted', false)->get();
+         return view('dashboard.category.index', compact('category','data_size','data_dials','data_model'));
     }
 
     /**
@@ -38,11 +29,11 @@ class CategoryController extends Controller
     public function create()
     {
 
-        $model = new Category(); 
+        $model = new Models(); 
         
-         return view('dashboard.category.create_category', compact('model'));
+         return view('dashboard.category.create_models', compact('model'));
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -51,9 +42,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Category();
-        $model->cat_name = $request->cat_name;
-        $model->cover ="";
+        // ddd($request);
+        $model = new Models();
+        $model->name = $request->name;
+        $model->cover = "";
         $model->deleted = false;
         $model->save();
 
@@ -77,10 +69,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Models $models)
     {
         
-         return view('dashboard.category.edit_category', compact('category'));
+         return view('dashboard.category.edit_models', compact('models'));
     }
 
     /**
@@ -92,8 +84,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Category::find($id);
-        $model->cat_name = $request->cat_name;
+         $model = Models::find($id);
+        $model->name = $request->name;
+        $model->cover = $request->cover;
         $model->deleted = false;
         $model->save();
 
@@ -108,10 +101,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-         $model = Category::find($id);
+         $model = Models::find($id);
         $model->deleted = true;
         $model->save();
 
-        return redirect('category');
     }
 }

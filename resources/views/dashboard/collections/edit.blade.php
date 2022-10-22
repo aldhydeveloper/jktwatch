@@ -19,54 +19,47 @@
                                 <input type="hidden" name="id" value="{{ @$collections->id }}" />
                                 <div class="form-group mt-4">
                                     <label for="name">Name</label>
-                                    <input type="text"
-                                        class="form-control @error('name') is-invalid @enderror bg-light text-dark"
-                                        id="name" name="name" placeholder="name" value="{{ @$collections->name }}">
+                                    <input type="text" class="form-control bg-light text-dark" id="name"
+                                        name="name" placeholder="name" value="{{ @$collections->name }}">
                                 </div>
                                 <div class="form-group mt-4">
-                                    <label for="price">Price</label>
-                                    <input type="text"
-                                        class="form-control @error('price') is-invalid @enderror bg-light text-dark"
-                                        id="price" name="price" placeholder="price"
-                                        value="{{ @$collections->price }}">
+                                    <label for="name">Price</label>
+                                    <input type="text" class="form-control bg-light text-dark" id="price"
+                                        name="price" placeholder="price" value="{{ @$collections->price }}">
                                 </div>
                                 <div class="form-group mt-4">
-                                    <label for="desc">Description</label>
-                                    <input type="text"
-                                        class="form-control  @error('desc') is-invalid @enderror bg-light text-dark"
-                                        id="desc" name="desc" placeholder="description" value="">
+                                    <label for="name">Description</label>
+                                    <input type="text" class="form-control bg-light text-dark" id="desc"
+                                        name="desc" placeholder="description" value="{{ @$collections->description }}">
                                 </div>
 
                                 <div class="form-group mt-4">
-                                    <label for="year">Year</label>
-                                    <input type="text"
-                                        class="form-control @error('year') is-invalid @enderror bg-light text-dark"
-                                        id="year" name="year" placeholder="year" value="{{ @$collections->year }}">
+                                    <label for="name">Year</label>
+                                    <input type="text" class="form-control bg-light text-dark" id="year"
+                                        name="year" placeholder="description" value="{{ @$collections->year }}">
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12 ">
                                         <label for="validationTagsThreshold" class="form-label">Tags</label>
-                                        <select class="form-select  @error('tags[]') is-invalid @enderror"
-                                            id="validationTagsThreshold" name="tags[]" multiple data-allow-clear="true"
-                                            data-suggestions-threshold="0">
+                                        <select class="form-select" id="validationTagsThreshold" name="tags[]" multiple
+                                            data-allow-clear="true" data-suggestions-threshold="0">
                                             <option selected disabled hidden value="">Choose a tag...</option>
                                             @foreach ($category as $key => $value)
-                                                <option class="text-black" value="category-{{ $value->id }}">
+                                                <option class="text-black" value="category-{{ $value->id }}"
+                                                    {{ in_array('category-' . $value->id, $tags) ? 'selected' : '' }}>
                                                     {{ $value->cat_name }}
                                                 </option>
                                             @endforeach
                                             @foreach ($data_size as $key => $value)
-                                                <option class="text-black" value="size-{{ $value->id }}">
+                                                <option class="text-black" value="size-{{ $value->id }}"
+                                                    {{ in_array('size-' . $value->id, $tags) ? 'selected' : '' }}>
                                                     {{ $value->name }}
                                                 </option>
                                             @endforeach
+
                                             @foreach ($data_model as $key => $value)
-                                                <option class="text-black" value="models-{{ $value->id }}">
-                                                    {{ $value->name }}
-                                                </option>
-                                            @endforeach
-                                            @foreach ($data_brand as $key => $value)
-                                                <option class="text-black" value="brand-{{ $value->id }}">
+                                                <option class="text-black" value="models-{{ $value->id }}"
+                                                    {{ in_array('models-' . $value->id, $tags) ? 'selected' : '' }}>
                                                     {{ $value->name }}
                                                 </option>
                                             @endforeach
@@ -76,11 +69,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Image Thumbnail</label>
-                                    <input type="file" name="image"
-                                        class="file-upload-default @error('image') is-invalid @enderror " id="image">
+                                    <input type="file" name="image" class="file-upload-default" id="image">
                                     <div class="input-group col-xs-12">
-                                        <input type="text" class="form-control  file-upload-info bg-light text-dark"
-                                            id="image" name="image" placeholder="Upload Image  "
+                                        <input type="text" class="form-control file-upload-info bg-light text-dark"
+                                            id="image" name="image" placeholder="Upload Image"
                                             value="{{ @$collections->image_thumbnail }}" disabled>
                                         <span class="input-group-append">
                                             <button class="file-upload-browse btn btn-primary"
@@ -90,7 +82,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Image Cover 1</label>
-                                    <input type="file" name="image_1" class="file-upload-default" id="image_1">
+                                    <input type="file" name="image_1" class="file-upload-default" id="image-1">
                                     <div class="input-group col-xs-12">
                                         <input type="text" class="form-control file-upload-info bg-light text-dark"
                                             id="image" name="image" placeholder="Upload Image"
@@ -103,7 +95,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Image Cover 2</label>
-                                    <input type="file" name="image_2" class="file-upload-default" id="image_2">
+                                    <input type="file" name="image_2" class="file-upload-default" id="image-2">
                                     <div class="input-group col-xs-12">
                                         <input type="text" class="form-control file-upload-info bg-light text-dark"
                                             id="image" name="image" placeholder="Upload Image"
@@ -116,7 +108,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Image Cover 3</label>
-                                    <input type="file" name="image_3" class="file-upload-default" id="image_3">
+                                    <input type="file" name="image_3" class="file-upload-default" id="image-3">
                                     <div class="input-group col-xs-12">
                                         <input type="text" class="form-control file-upload-info bg-light text-dark"
                                             id="image" name="image" placeholder="Upload Image"
@@ -129,7 +121,7 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary mr-2 mt-2">Submit</button>
-                                {{-- <button class="btn btn-dark mt-2">Cancel</button> --}}
+                                <button class="btn btn-dark mt-2">Cancel</button>
                             </form>
                         </div>
                     </div>

@@ -16,14 +16,10 @@ class CreateCollectionsTable extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('color');
             $table->integer('price');
-            $table->text('tags');
-            // $table->integer('cat_id');
-            // $table->integer('size_id');
-            // $table->integer('dial_id');
-            // $table->integer('type_id');
+            $table->text('description');
             $table->string('year');
+            $table->text('tags');
             $table->text('image_thumbnail');
             $table->text('image_1');
             $table->text('image_2');

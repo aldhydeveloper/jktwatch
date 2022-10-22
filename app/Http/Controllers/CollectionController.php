@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Size;
 use App\Models\Collection;
 use App\Models\Dials;
+use App\Models\Models;
+use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
 
 class CollectionController extends Controller
@@ -45,8 +47,10 @@ class CollectionController extends Controller
         $category = Category::where('deleted', false)->get();
         $data_size = Size::where('deleted', false)->get();
         $data_dials = Dials::where('deleted', false)->get();
+        $data_model = Models::where('deleted', false)->get();
+        $data_brand = Brand::where('deleted', false)->get();
         
-         return view('dashboard.collections.create',  compact('category','data_size','data_dials'));
+         return view('dashboard.collections.create',  compact('category','data_size','data_dials','data_model','data_brand'));
     }
 
     /**
@@ -60,6 +64,8 @@ class CollectionController extends Controller
         $category = Category::where('deleted', false)->get();
         $data_size = Size::where('deleted', false)->get();
         $data_dials = Dials::where('deleted', false)->get();
+        $data_model = Models::where('deleted', false)->get();
+        $data_brand = Brand::where('deleted', false)->get();
 
         $collections = Collection::find($id);
         $tags = [];
@@ -81,7 +87,7 @@ class CollectionController extends Controller
         }
         // dd($collections);
         
-         return view('dashboard.collections.create',  compact('category','data_size','data_dials', 'collections', 'tags'));
+         return view('dashboard.collections.edit',  compact('category','data_size','data_dials', 'collections', 'tags','data_model','data_brand'));
         //
     }
     /**
@@ -92,7 +98,12 @@ class CollectionController extends Controller
      */
     public function store(Request $request)
     {
-
+        $validateData = $request->validate([
+          'name'=>'required',
+          'price'=>'required',
+          'desc'=>'required',
+          'year'=>'required',
+        ]);
         // dd($request->tags);
         $tags = [];
         $i = 0;
@@ -118,30 +129,30 @@ class CollectionController extends Controller
           $model = Collection::find($id);
         }
         $model->name = $request->name;
-        $model->color = "black";
         $model->price = $request->price;
+        $model->description = $request->desc;
+        $model->year = $request->year;
         $model->tags = !empty($tags) ? json_encode($tags) : null;
         // $model->cat_id = $request->category;
         // $model->dial_id = $request->dial;
         // $model->size_id = $request->size;
         // $model->type_id = 0;
-        $model->year = "2022";
-        $model->image_thumbnail = '';
-        $model->image_1 = '';
-        $model->image_2 = '';
-        $model->image_3 = '';
+        // $model->image_thumbnail = $request->file('image')->store('collections');
+        // $model->image_1 = $request->file('image_1')->store('collections');
+        // $model->image_2 = $request->file('image_2')->store('collections');
+        // $model->image_3 = $request->file('image_3')->store('collections');
         
         if($_FILES['image']['name'] != ''){
           $model->image_thumbnail = $request->file('image')->store('collections');
         }
         if($_FILES['image_1']['name'] != ''){
-          $model->image_thumbnail = $request->file('image_1')->store('collections');
+          $model->image_1 = $request->file('image_1')->store('collections');
         }
         if($_FILES['image_2']['name'] != ''){
-          $model->image_thumbnail = $request->file('image_2')->store('collections');
+          $model->image_2 = $request->file('image_2')->store('collections');
         }
         if($_FILES['image_3']['name'] != ''){
-          $model->image_thumbnail = $request->file('image_3')->store('collections');
+          $model->image_3 = $request->file('image_3')->store('collections');
         }
         // $model->image_2 = $request->file('image')->store('collections');
         // $model->image_3 = $request->file('image')->store('collections');
@@ -187,7 +198,7 @@ class CollectionController extends Controller
         //     }
             
         // }
-        // dd(\Request::query());
+        // dd($request->query());
         $query = $request->query();
         $q = count($query) > 0 ? '?' : '&';
         // dd(\Request::getRequestUri());
@@ -195,12 +206,16 @@ class CollectionController extends Controller
         $category = $request->category;
         $dial = $request->dial;
         $type = $request->type;
+        $models = $request->models;
+        $brand = $request->brand;
         $collection = $this->getCollection_v2($request);
-        
+        // dd($collection);
         $tags = new \stdClass;
         $tags->category = [];
         $tags->size = [];
         $tags->dial = [];
+        $tags->models = [];
+        $tags->brand = [];
         foreach($collection as $k => $v){
           $arr_tags = json_decode($v->tags);
           if(isset($arr_tags->category)){
@@ -231,6 +246,28 @@ class CollectionController extends Controller
               }
             }
           }
+          
+          $collection[$k]->models = [];   
+          if(isset($arr_tags->models)){
+            foreach($arr_tags->models as $kModels => $vModels){
+              $modelsModel = Models::find($vModels);
+              if($modelsModel){
+                $collection[$k]->models[$vModels] = $modelsModel->name;
+                $tags->models[$vModels] = $modelsModel->name;
+              }
+            }
+          }
+          
+          $collection[$k]->brand = [];   
+          if(isset($arr_tags->brand)){
+            foreach($arr_tags->brand as $kBrand => $vBrand){
+              $brandModel = Brand::find($vBrand);
+              if($brandModel){
+                $collection[$k]->brand[$vBrand] = $brandModel->name;
+                $tags->brand[$vBrand] = $brandModel->name;
+              }
+            }
+          }
           // foreach(){
 
           // } 
@@ -240,6 +277,7 @@ class CollectionController extends Controller
         // dd($collection);
         //  return view('dashboard.collections.index', compact('collection','title'));
         //  return view('dashboard.collections.index', compact('category','data_size','data_collection','title'));
+        // dd($models);
         return view('dashboard.collections.index', [
           'collection' => $collection,
           'title' => $title,
@@ -249,6 +287,8 @@ class CollectionController extends Controller
           'category' => $category,
           'dial' => $dial,
           'type' => $type,
+          'models' => $models,
+          'brand' => $brand,
         ]);
     }
 
@@ -278,6 +318,7 @@ class CollectionController extends Controller
 
     public function getCollection_v2($request){
       $params = $request->all();
+      // dd($params);
       $contains = [];
       foreach($params as $k => $v){
         $contains[] = "JSON_CONTAINS(tags, $v, '$.$k') > 0";
@@ -291,7 +332,7 @@ class CollectionController extends Controller
     }
 
     public function getCollection($size, $category, $dial, $type){
-      $collection = Collection::with('size')->with('type')->with('category')->with('dial');
+      $collection = Collection::with('size')->with('type')->with('category')->with('models');
       if($size){
           $collection = $collection->where('size_id', $size);
       }
@@ -302,6 +343,9 @@ class CollectionController extends Controller
           $collection = $collection->where('dial_id', $dial);
       }
       if($type){
+          $collection = $collection->where('type_id', $type);
+      }
+      if($models){
           $collection = $collection->where('type_id', $type);
       }
       $collection = $collection->get();

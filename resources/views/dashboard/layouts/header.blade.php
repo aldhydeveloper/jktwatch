@@ -16,7 +16,7 @@
         </ul> --}}
         <ul class="navbar-nav navbar-nav-right">
 
-            <li class="nav-item dropdown border-left">
+            {{-- <li class="nav-item dropdown border-left">
                 <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#"
                     data-toggle="dropdown" aria-expanded="false">
                     <i class="mdi mdi-email"></i>
@@ -108,7 +108,7 @@
                     <div class="dropdown-divider"></div>
                     <p class="p-3 mb-0 text-center">See all notifications</p>
                 </div>
-            </li>
+            </li> --}}
 
             <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">

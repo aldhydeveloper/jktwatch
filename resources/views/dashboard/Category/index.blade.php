@@ -109,8 +109,8 @@
                     <div class="card-body">
 
                         <div class="d-flex flex-row justify-content-between">
-                            <h4 class="card-title">Dials</h4>
-                            <a href="{{ url('dial/create') }}" class="btn btn-info btn-rounded btn-fw" id="create_category"
+                            <h4 class="card-title">Models</h4>
+                            <a href="{{ url('models/create') }}" class="btn btn-info btn-rounded btn-fw" id="create_models"
                                 style="width: 40px; font-size:21px">+</a>
                         </div>
                         <div class="table-responsive">
@@ -126,17 +126,68 @@
                                 </thead>
                                 <tbody>
                                     <?php $num = 0; ?>
-                                    @foreach ($data_dials as $key => $value)
+                                    @foreach ($data_model as $key => $value)
                                         <?php $num++; ?>
                                         <tr>
                                             <td> {{ $num }} </td>
                                             <td> {{ $value->name }} </td>
-                                            <td> <a href="/size/{{ $value->id }}/edit" class="btn  btn-primary "
+                                            <td> <a href="/models/{{ $value->id }}/edit" class="btn  btn-primary "
                                                     id="update" style="width: 40px; font-size:12px"><i
                                                         class="bi bi-pencil-fill" style="margin-left: 0 "></i></a>
                                             </td>
                                             <td>
-                                                <form action="/size/{{ $value->id }}" method="post">
+                                                <form action="/models/{{ $value->id }}" method="post">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="btn  btn-danger "
+                                                        onclick="return confirm('Are you sure ?')"><i class="bi bi-trash"
+                                                            style="margin-right: 0"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 grid-margin">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="d-flex flex-row justify-content-between">
+                            <h4 class="card-title">Brand</h4>
+                            <a href="{{ url('brand/create') }}" class="btn btn-info btn-rounded btn-fw" id="create_models"
+                                style="width: 40px; font-size:21px">+</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th> No. </th>
+                                        <th> Name </th>
+                                        <th> Edit </th>
+                                        <th> Delete </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $num = 0; ?>
+                                    @foreach ($data_brand as $key => $value)
+                                        <?php $num++; ?>
+                                        <tr>
+                                            <td> {{ $num }} </td>
+                                            <td> {{ $value->name }} </td>
+                                            <td> <a href="/brand/{{ $value->id }}/edit" class="btn  btn-primary "
+                                                    id="update" style="width: 40px; font-size:12px"><i
+                                                        class="bi bi-pencil-fill" style="margin-left: 0 "></i></a>
+                                            </td>
+                                            <td>
+                                                <form action="/brand/{{ $value->id }}" method="post">
                                                     @method('delete')
                                                     @csrf
                                                     <button class="btn  btn-danger "

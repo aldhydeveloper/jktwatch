@@ -9,6 +9,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\c_type;
 use App\Http\Controllers\c_dials;
+use App\Http\Controllers\c_models;
+use App\Http\Controllers\c_brand;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +42,11 @@ Route::resource('size', SizeController::class)->middleware(['auth']);
 Route::resource('collections', CollectionController::class)->middleware(['auth']);
 Route::resource('type', c_type::class)->middleware(['auth']);
 Route::resource('dial', c_dials::class)->middleware(['auth']);
+Route::resource('models', c_models::class)->middleware(['auth']);
+Route::resource('brand', c_brand::class)->middleware(['auth']);
 
 Route::resource('collections.category', CollectionController::class)->shallow();
-Route::get('collections/form/{id}', [CollectionController::class, 'form']);
+Route::get('collections/form/{id}', [CollectionController::class, 'form'])->middleware(['auth']);
 
 // Route::get('collection/all', [CollectionController::class, 'getCollection']);
 // Route::get('collections/form/$1', CollectionController::class, 'form')->middleware(['auth']);

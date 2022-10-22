@@ -17,9 +17,8 @@ class SizeController extends Controller
     {
         
         $category = Category::where('deleted', false)->get();
-        $data_size = Size::where('deleted', false)->get();
-
-         return view('dashboard.category.index', compact('category','data_size'));
+        $data_model = Type::where('deleted', false)->get();
+         return view('dashboard.category.index', compact('category','data_size','data_dials','data_model'));
     }
 
     /**
@@ -45,6 +44,7 @@ class SizeController extends Controller
     {
        $model = new Size();
         $model->name = $request->name;
+        $model->cover = "";
         $model->deleted = false;
         $model->save();
 

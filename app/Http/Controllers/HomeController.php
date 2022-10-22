@@ -3,12 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Size;
+use App\Models\Collection;
+use App\Models\Dials;
+use App\Models\Models;
+use App\Models\Brand;
 
 class HomeController extends Controller
 {
     function index()
     {
-        return view("home.index",["title" => "Home"]);
+        
+        $category = Category::where('deleted', false)->get();
+        $data_size = Size::where('deleted', false)->get();
+        $data_dials = Dials::where('deleted', false)->get();
+        $data_model = Models::where('deleted', false)->get();
+        $data_brand = Brand::where('deleted', false)->get();
+        $title = "Home";
+        
+        return view("home.index",compact('title','category','data_size','data_dials','data_model','data_brand'));
     }
     function watches()
     {   

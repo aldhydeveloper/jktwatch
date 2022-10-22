@@ -79,24 +79,37 @@
         </div>
 
 
-        <div class="py-5 text-light" style="text-align:center ">
+        <div class="py-5 text-light justify-content-md-center" style="text-align:center ">
             <h1>NEW COLLECTION</h1>
-            <div class="row my-5 hover01 text-center">
-                <div class="col-4">
-                    <figure><img class="img-xs rounded-circle mx-3" src="{{ asset('img/casio.webp') }}" alt=""
-                            width="350px"></figure>
-                    <h3 style="margin-top: 30px">Casio - 123456</h3>
-                </div>
-                <div class=" col-4">
-                    <figure><img class="img-xs rounded-circle mx-3" src="{{ asset('img/rolex.jpg') }}" alt=""
-                            width="350px"></figure>
-                    <h3 style="margin-top: 30px">Rolex - 123456</h3>
-                </div>
-                <div class=" col-4">
-                    <figure><img class="img-xs rounded-circle mx-3" src="{{ asset('img/rolex2.jpg') }}" alt=""
-                            width="350px"></figure>
+            <div class="container text-center">
+                <div class="row  my-5  hover01 ">
+                    <div class="col">
+                        <figure><img class="img-xs rounded-circle mx-3" src="{{ asset('img/casio.webp') }}" alt=""
+                                width="100%"></figure>
+                        <h3 style="margin-top: 30px">Casio - 123456</h3>
+                    </div>
+                    <div class="col">
+                        <figure><img class="img-xs rounded-circle mx-3" src="{{ asset('img/rolex.jpg') }}" alt=""
+                                width="100%"></figure>
+                        <h3 style="margin-top: 30px">Rolex - 123456</h3>
+                    </div>
+                    <div class="col">
+                        <figure><img class="img-xs rounded-circle mx-3" src="{{ asset('img/rolex2.jpg') }}"
+                                alt="" width="100%"></figure>
 
-                    <h3 style="margin-top: 30px">Rolex - 123456</h3>
+                        <h3 style="margin-top: 30px">Rolex - 123456</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-5 col hover01 text-center">
+                <div class="col-4 mx-auto">
+
+                </div>
+                <div class=" col-4">
+
+                </div>
+                <div class=" col-4">
+
                 </div>
             </div>
             <div class="row text-start hover01" style="margin-top: 10%">
@@ -177,78 +190,47 @@
 
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
-                            <p class="mt-3 text-light">"26mm"</p>
-                            <a href="" class="btn btn-secondary ">View Details >></a>
+                    @foreach ($category as $key => $value)
+                        <div class="swiper-slide">
+                            <div>
+                                <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
+                                    style="border-radius: 35px">
+                                <p class="mt-3 text-light">{{ $value->cat_name }}</p>
+                                <a href="" class="btn btn-secondary ">View Details >></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/women-home.jpeg') }}" alt=""
-                                style="border-radius: 35px">
-                            <p class="mt-3 text-light">"28mm"</p>
-                            <a href="" class="btn btn-secondary ">View Details >></a>
+                    @endforeach
+                    @foreach ($data_size as $key => $value)
+                        <div class="swiper-slide">
+                            <div>
+                                <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
+                                    style="border-radius: 35px">
+                                <p class="mt-3 text-light">{{ $value->name }}</p>
+                                <a href="" class="btn btn-secondary ">View Details >></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/w1.webp') }}" alt=""
-                                style="border-radius: 35px">
-                            <p class="mt-3 text-light">"31mm"</p>
-                            <a href="" class="btn btn-secondary ">View Details >></a>
+                    @endforeach
+                    @foreach ($data_model as $key => $value)
+                        <div class="swiper-slide">
+                            <div>
+                                <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
+                                    style="border-radius: 35px">
+                                <p class="mt-3 text-light">{{ $value->name }}</p>
+                                <a href="" class="btn btn-secondary ">View Details >></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
-                            <p class="mt-3 text-light">"26mm"</p>
-                            <a href="" class="btn btn-secondary ">View Details >></a>
+                    @endforeach
+                    @foreach ($data_brand as $key => $value)
+                        <div class="swiper-slide">
+                            <div>
+                                <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
+                                    style="border-radius: 35px">
+                                <p class="mt-3 text-light">{{ $value->name }}</p>
+                                <a href="" class="btn btn-secondary ">View Details >></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
-                            <p class="mt-3 text-light">"26mm"</p>
-                            <a href="" class="btn btn-secondary ">View Details >></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
-                            <p class="mt-3 text-light">"26mm"</p>
-                            <a href="" class="btn btn-secondary ">View Details >></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
-                            <p class="mt-3 text-light">"26mm"</p>
-                            <a href="" class="btn btn-secondary ">View Details >></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
-                            <p class="mt-3 text-light">"26mm"</p>
-                            <a href="" class="btn btn-secondary ">View Details >></a>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
-                            <p class="mt-3 text-light">"26mm"</p>
-                            <a href="" class="btn btn-secondary ">View Details >></a>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
                 <div class="swiper-button-next text-light"></div>
                 <div class="swiper-button-prev text-light"></div>

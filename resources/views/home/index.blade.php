@@ -180,7 +180,14 @@
         <div class="swiper mySwiper mt-5">
             <h1 class="text-light text-center ">CATEGORY</h1>
             <div class="swiper-wrapper">
-
+                <div class="swiper-slide">
+                    <div>
+                        <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
+                            style="border-radius: 35px">
+                        <p class="mt-3 text-light">All Category</p>
+                        <a href="/watch/all" class="btn btn-secondary ">View Details >></a>
+                    </div>
+                </div>
                 @foreach ($category as $key => $value)
                     <div class="swiper-slide">
                         <div>

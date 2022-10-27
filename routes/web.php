@@ -11,6 +11,7 @@ use App\Http\Controllers\c_type;
 use App\Http\Controllers\c_dials;
 use App\Http\Controllers\c_models;
 use App\Http\Controllers\c_brand;
+use App\Http\Controllers\c_products;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::resource('type', c_type::class)->middleware(['auth']);
 Route::resource('dial', c_dials::class)->middleware(['auth']);
 Route::resource('models', c_models::class)->middleware(['auth']);
 Route::resource('brand', c_brand::class)->middleware(['auth']);
+Route::resource('product', c_products::class);
 
 Route::resource('collections.category', CollectionController::class)->shallow();
 Route::get('collections/form/{id}', [CollectionController::class, 'form'])->middleware(['auth']);

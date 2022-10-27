@@ -4,10 +4,10 @@
                 alt="logo" /></a>
     </div>
 
-    <div class="flex-grow d-flex ">
-        <h2 class="text-center align-self-center" style="width: 100%">
-            Watch
-        </h2>
+    <div class="flex-grow d-flex mt-2">
+        <h3 class="text-center align-self-center" style="width: 100%">
+            Watches
+        </h3>
     </div>
     <button class=" navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
         <a class="btn btn-light">FILTER</a>

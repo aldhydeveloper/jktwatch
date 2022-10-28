@@ -50,7 +50,7 @@ class c_watch extends Controller
         }
         // dd($collections);
         
-         return view('dashboard.collections.edit',  compact('category','data_size','data_dials', 'collections', 'tags','data_model','data_brand'));
+         return view('products.index',  compact('category','data_size','data_dials', 'collections', 'tags','data_model','data_brand'));
         //
     }
     /**

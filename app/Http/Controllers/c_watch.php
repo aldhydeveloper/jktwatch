@@ -35,9 +35,19 @@ class c_watch extends Controller
         $i = 0;
         if($collections){
           $arr_tags = json_decode($collections->tags);
+          // dd($collections->tags);
           foreach($arr_tags as $k => $v){
             foreach($v as $v2){
-              $tags[$i] = $k . '-' .$v2;
+              if($k === "category") {
+                $tags[$k] ="$v2";
+              }
+               if($k === "size") {
+                $tags[$k] ="$v2";
+              }
+              if($k === "brand") {
+                $tags[$k] = "$v2";
+              }
+              // $tags[$i] = $k . '-' .$v2;
               $i++;
             }
             // if(isset($v->category)){
@@ -46,11 +56,84 @@ class c_watch extends Controller
             //   }
             // }
           }
+          
           // dd($tags);
+          
+        $x = 0;
+        $related =[];
+        $newRelated = $this->getRelatedWatch($tags,$id);
+          if ($newRelated){
+            foreach($newRelated as $k => $v){
+              if ($v->id <> $id && $v->deleted == 0) {
+                $related[] = $v;
+              }
+              $x++;
+            }
+          // dd($related);
+          if ($related) {
+            foreach($related as $k => $v){
+          $arr_tags = json_decode($v->tags);
+
+          
+          $related[$k]->gender = [];   
+          if(isset($arr_tags->category)){
+            foreach($arr_tags->category as $kCat => $vCat){
+              $catModel = Category::find($vCat);
+              
+                $related[$k]->gender[$vCat] = $catModel->cat_name;
+            }
+          }
+
+          $related[$k]->size = [];   
+          if(isset($arr_tags->size)){
+            foreach($arr_tags->size as $kSize => $vSize){
+              $sizeModel = Size::find($vSize);
+              if($sizeModel){
+                $related[$k]->size[$vSize] = $sizeModel->name;
+                // $tags->size[$vSize] = $sizeModel->name;
+              }
+            }
+          }
+
+          if(isset($arr_tags->dial)){
+            foreach($arr_tags->dial as $kDial => $vDial){
+              $dialModel = Dials::find($vDial);
+              if($sizeModel){
+                // $tags->dial[$vDial] = $dialModel->name;
+              }
+            }
+          }
+          
+          $related[$k]->models = [];   
+          if(isset($arr_tags->models)){
+            foreach($arr_tags->models as $kModels => $vModels){
+              $modelsModel = Models::find($vModels);
+              if($modelsModel){
+                $related[$k]->models[$vModels] = $modelsModel->name;
+                // $tags->models[$vModels] = $modelsModel->name;
+              }
+            }
+          }
+          
+          $related[$k]->brand = [];   
+          if(isset($arr_tags->brand)){
+            foreach($arr_tags->brand as $kBrand => $vBrand){
+              $brandModel = Brand::find($vBrand);
+              if($brandModel){
+                $related[$k]->brand[$vBrand] = $brandModel->name;
+                // $tags->brand[$vBrand] = $brandModel->name;
+              }
+            }
+          }
         }
+          }
+          }
+        }
+
+        
         // dd($collections);
         
-         return view('products.index',  compact('category','data_size','data_dials', 'collections', 'tags','data_model','data_brand'));
+         return view('products.index',  compact('category','data_size','data_dials', 'collections', 'tags','data_model','data_brand','related'));
         //
     }
     /**
@@ -170,7 +253,7 @@ class c_watch extends Controller
 
     public function getCollection_v2($request){
       $params = $request->all();
-      // dd($params);
+      // dd($request);
       $contains = [];
       foreach($params as $k => $v){
         $contains[] = "JSON_CONTAINS(tags, $v, '$.$k') > 0";
@@ -179,6 +262,21 @@ class c_watch extends Controller
       $where = !empty($where) ? $where . ' AND deleted = 0' : 'deleted = 0';
       // dd($where);
       $collection = DB::select("SELECT * FROM collections WHERE $where ");
+
+      return $collection;
+    }
+
+    public function getRelatedWatch($params, $id){
+      // $params = $request->all();
+      // dd($request);
+      $contains = [];
+      foreach($params as $k => $v){
+        $contains[] = "JSON_CONTAINS(tags, $v, '$.$k') > 0";
+      }
+      $where = implode(' OR ', $contains);
+      $where = !empty($where) ? $where . ' AND deleted = 0' : 'deleted = 0' ;
+      // dd($where);
+      $collection = DB::select("SELECT * FROM collections WHERE $where AND id <> $id AND id <> $id");
 
       return $collection;
     }

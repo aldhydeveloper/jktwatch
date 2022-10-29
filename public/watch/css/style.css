@@ -17540,6 +17540,17 @@ input[type="button"].btn-block {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
+    background-color: white;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.bg-tags {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
     background-color: #191c24;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
@@ -33455,7 +33466,7 @@ div.tagsinput span.tag a {
 
 .navbar {
     font-weight: normal;
-    background: black;
+    background: #191c24;
     left: 290px;
     transition: left 0.25s ease;
     -webkit-transition: left 0.25s ease;
@@ -34045,6 +34056,8 @@ div.tagsinput span.tag a {
 .sidebar {
     min-height: calc(100vh - 70px);
     background: #191c24;
+    background-clip: border-box;
+    border: 3px solid black;
     font-weight: normal;
     padding: 0;
     width: 300px;
@@ -34911,7 +34924,7 @@ div.tagsinput span.tag a {
 }
 
 .content-wrapper {
-    background: #000000;
+    background: #191c24;
     padding: 1.875rem 1.75rem;
     width: 100%;
     -webkit-flex-grow: 1;

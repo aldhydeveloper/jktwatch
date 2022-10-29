@@ -20,9 +20,10 @@ class HomeController extends Controller
         $data_dials = Dials::where('deleted', false)->get();
         $data_model = Models::where('deleted', false)->get();
         $data_brand = Brand::where('deleted', false)->get();
+        $collections = Collection::where('deleted', false)->latest()->take(3)->get();
         $title = "Home";
         
-        return view("home.index",compact('title','category','data_size','data_dials','data_model','data_brand'));
+        return view("home.index",compact('title','category','data_size','data_dials','data_model','data_brand','collections'));
     }
     function watches()
     {   

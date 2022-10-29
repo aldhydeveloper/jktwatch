@@ -527,3 +527,24 @@ header.masthead .masthead-heading {
         font-size: 1rem;
     }
 }
+.collection-name {
+    margin-top: 30px;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+@media (max-width: 400px) {
+    .btn-details {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .ns-none {
+        display: none;
+    }
+    .collection-name {
+        font-size: large;
+        font-weight: normal;
+    }
+}

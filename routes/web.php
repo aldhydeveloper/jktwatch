@@ -50,7 +50,7 @@ Route::resource('product', c_products::class);
 Route::resource('watch', c_watch::class);
 
 Route::resource('collections.category', CollectionController::class)->shallow();
-Route::get('collections/form/{id}', [CollectionController::class, 'form'])->middleware(['auth']);
+Route::get('collections/form/{id}', [CollectionController::class, 'form']);
 Route::get('watch/form/{id}', [c_watch::class, 'form']);
 
 // Route::get('collection/all', [CollectionController::class, 'getCollection']);

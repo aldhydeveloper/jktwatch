@@ -32,9 +32,8 @@
                                 </div>
                                 <div class="form-group mt-4">
                                     <label for="desc">Description</label>
-                                    <input type="text"
-                                        class="form-control  @error('desc') is-invalid @enderror bg-light text-dark"
-                                        id="desc" name="desc" placeholder="description" value="">
+                                    <textarea type="text" class="form-control  @error('desc') is-invalid @enderror bg-light text-dark" id="desc"
+                                        name="desc" placeholder="description" rows="3" value=""></textarea>
                                 </div>
 
                                 <div class="form-group mt-4">

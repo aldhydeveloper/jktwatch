@@ -10,7 +10,7 @@
                         @foreach ($collection as $key => $value)
                             @php $value = (object) $value @endphp
                             <div class="col-lg-3 col-12">
-                                <a href="{{ url('collections/form') . '/' . $value->id }}">
+                                <a href="{{ url('watch/form') . '/' . $value->id }}">
                                     <div class="card shadow-sm  my-3 ">
                                         <img class=" card-img-top" width="80%" height="225"
                                             src="{{ asset('storage/' . $value->image_thumbnail) }}" focusable="false"

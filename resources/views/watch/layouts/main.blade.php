@@ -28,6 +28,7 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('watch/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/ns.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     {{-- <link rel="stylesheet" href="assets/css/style.css"> --}}
     <!-- End layout styles -->
@@ -42,6 +43,7 @@
 
 <body>
 
+
     <div class="container-scroller">
 
         @include('watch.layouts.sidebar')
@@ -51,9 +53,8 @@
             @include('watch.layouts.header')
 
             <div class="main-panel ">
-                <div class="content-wrapper ">
-                    @yield('content')
-                </div>
+
+                @yield('content')
             </div>
 
         </div>

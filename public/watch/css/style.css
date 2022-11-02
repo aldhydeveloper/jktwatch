@@ -17543,7 +17543,6 @@ input[type="button"].btn-block {
     background-color: white;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
 }
 
 .bg-tags {
@@ -34952,4 +34951,27 @@ div.tagsinput span.tag a {
 
 .label-info {
     background-color: red;
+}
+.watches-card {
+    width: 255px;
+    margin: 0 !important;
+}
+@media (max-width: 540px) {
+    .watches-card {
+        width: 253px;
+        margin: 0 !important;
+    }
+}
+@media (max-width: 390px) {
+    .watches-card {
+        width: 170px;
+        margin: 0 !important;
+    }
+}
+.grid-container {
+  display: grid;
+  grid-template: 150px / auto auto auto;
+  grid-gap: 10px;
+  background-color: #fff;
+  padding: 10px;
 }

@@ -1,0 +1,83 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 20px;
+    grid-gap: 5px;
+}
+.img-ns {
+    width: 250px !important;
+    height: 250px !important;
+
+    object-fit: cover;
+}
+.grid > article {
+    text-align: center;
+    background: white;
+    padding: 0 12px;
+}
+
+.grid > article:hover {
+    border: 0.5px #191c24;
+}
+
+.description {
+    margin-top: 30px;
+    margin-bottom: 8px;
+    color: black;
+}
+.watch-tags {
+    margin-bottom: 13px;
+    font-family: "Lucida Sans";
+    /* font-weight: 500; */
+    color: gray;
+    font-size: 15px;
+}
+.watch-title {
+    margin-bottom: 10px;
+    font-family: "Lucida Sans";
+    /* font-weight: 500; */
+    font-size: 18px;
+}
+
+.watch-price {
+    margin-bottom: 10px;
+    font-family: "Lucida Sans";
+    font-size: 16px;
+}
+
+.watch-year {
+    font-family: "Lucida Sans";
+    /* font-weight: 500; */
+    color: gray;
+    font-size: 15px;
+}
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .img-ns {
+        width: 280px !important;
+        height: 300px !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .img-ns {
+        width: 140px;
+        height: 180px;
+    }
+    .grid > article {
+        padding: 10px 8px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .img-ns {
+        width: 250px;
+        height: 250px;
+    }
+}

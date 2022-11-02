@@ -1,41 +1,29 @@
 @extends('watch.layouts.main')
 
 @section('content')
-    <div class="row">
+    <?php $num = 0; ?>
+    @foreach ($collection as $key => $value)
+        <?php $num++; ?>
+    @endforeach
+    <div class="text-center mb-3">{{ $num }} product</div>
+    <main class="grid">
+        @csrf
 
-        <div class="col-xxl-9 col-lg-10 col-l2">
-            <div class="row">
-                <div class="col-12">
-                    <div class="row">
-                        @foreach ($collection as $key => $value)
-                            @php $value = (object) $value @endphp
-                            <div class="col-lg-3 col-12">
-                                <a href="{{ url('watch/form') . '/' . $value->id }}">
-                                    <div class="card shadow-sm  my-3 ">
-                                        <img class=" card-img-top" width="80%" height="225"
-                                            src="{{ asset('storage/' . $value->image_thumbnail) }}" focusable="false"
-                                            style="object-fit: cover;">
-                                        </img>
-
-                                        <div class="card-body text-center  text-dark">
-                                            <div class="fs-4 fw-lighter fw-bold">{{ $value->name }}</div>
-                                            <div class="fw-lighter my-1 fst-italic">{{ implode(', ', $value->models) }}
-                                                {{ implode(', ', $value->size) }}
-                                                {{ implode(', ', $value->brand) }}
-                                            </div>
-                                            <div class="fw-lighter fw-bold my-2">IDR
-                                                {{ number_format($value->price, 0) }}</div>
-                                            <p class="fs-4 ">
-                                                {{ $value->year }}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
+        @foreach ($collection as $key => $value)
+            <article>
+                <a href="{{ url('watch/form') . '/' . $value->id }}" class="btn">
+                    <img src="{{ asset('storage/' . @$value->image_thumbnail) }}" class="img-ns" />
+                    <div class="description">
+                        <div class="watch-tags">{{ implode(', ', $value->models) }}
+                            {{ implode(', ', $value->size) }}
+                            {{ implode(', ', $value->brand) }}</div>
+                        <div class="watch-title">{{ $value->name }}</div>
+                        <div class="watch-price">IDR
+                            {{ number_format($value->price, 0) }}</div>
+                        <div class="watch-year"> {{ $value->year }}</div>
                     </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+                </a>
+            </article>
+        @endforeach
+    </main>
 @endsection

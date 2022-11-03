@@ -44,13 +44,13 @@
 <body>
 
 
+    @include('watch.layouts.header')
     <div class="container-scroller">
 
         @include('watch.layouts.sidebar')
 
-        <div class="container-fluid page-body-wrapper">
+        <div class="container-fluid ">
 
-            @include('watch.layouts.header')
 
             <div class="main-panel ">
 

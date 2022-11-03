@@ -43,6 +43,7 @@
 <div class="container">
     <div id="back-drop" class=""></div>
     <header class="d-lg-flex d-none align-items-center justify-content-center justify-content-md-between mb-4 py-3">
+        <img src="{{ asset('img/logo_white.png') }}" width="150px">
         <ul class="nav col-12 col-md-auto mb-2 align-items-center justify-content-center mb-md-0">
             <li><a href="{{ route('home') }}"
                     class="nav-link {{ $title === 'Home' ? 'link-secondary' : 'link-light' }}">HOME</a></li>
@@ -52,7 +53,9 @@
                     class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">ABOUT US</a></li>
         </ul>
     </header>
-    <header id="mobile-nav" class="d-block d-lg-none mobile-nav">
+    <header id="mobile-nav" class="d-block d-lg-none mobile-nav  d-flex">
+        <a class="navbar-brand m-0" href="{{ route('home') }}"><img src="{{ asset('img/logo_white.png') }}"
+                width="120" alt="logo" /></a>
         <button id="burger" type="button" class="burger d-block ms-auto">
             <span></span>
             <span></span>

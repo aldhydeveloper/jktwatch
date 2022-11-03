@@ -51,14 +51,32 @@
     color: gray;
     font-size: 15px;
 }
+
+@media (max-width: 400px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        margin: 0;
+    }
+    .grid > article {
+        padding: 0 0;
+    }
+    .grid {
+        display: grid;
+    }
+    .img-ns {
+        width: 140px !important;
+        height: 250px !important;
+    }
+}
+
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 
     .img-ns {
-        width: 280px !important;
-        height: 300px !important;
+        width: 280px;
+        height: 300px;
     }
 }
 

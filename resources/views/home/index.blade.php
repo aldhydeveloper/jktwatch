@@ -2,9 +2,6 @@
 
 @section('container')
     <div class="header-all">
-        <div class="col-lg-12 col-md-12 text-center">
-            <img src="{{ asset('img/logo_white.png') }}" alt="logo" class="logo-all">
-        </div>
         <video src="{{ asset('video/cinematic.mp4') }}" autoplay loop muted class="back-video">
         </video>
         <div class="content">

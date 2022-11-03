@@ -1,9 +1,9 @@
  <nav class="sidebar sidebar-offcanvas " id="sidebar">
-     <a href="{{ route('home') }}"
+     {{-- <a href="{{ route('home') }}"
          class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top"
          style="padding-top: 30px">
          <img src="{{ asset('img/logo_white.png') }}" alt="logo" width="50%">
-     </a>
+     </a> --}}
      <ul class="nav my-5 px-3">
          <div class="d-flex flex-row justify-content-between align-items-center ">
              <h4>Filter</h4>

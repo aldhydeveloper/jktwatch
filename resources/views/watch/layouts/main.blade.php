@@ -43,20 +43,15 @@
 
 <body>
 
+    @include('watch.layouts.sidebar')
 
     @include('watch.layouts.header')
+
     <div class="container-scroller">
 
-        @include('watch.layouts.sidebar')
+        <div class="main-panel ">
 
-        <div class="container-fluid ">
-
-
-            <div class="main-panel ">
-
-                @yield('content')
-            </div>
-
+            @yield('content')
         </div>
 
     </div>

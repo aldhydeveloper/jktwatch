@@ -1,10 +1,12 @@
- <nav class="sidebar sidebar-offcanvas " id="sidebar">
+ <nav class="sidebar sidebar-offcanvas position-fixed " id="sidebar">
      {{-- <a href="{{ route('home') }}"
          class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top"
          style="padding-top: 30px">
          <img src="{{ asset('img/logo_white.png') }}" alt="logo" width="50%">
      </a> --}}
-     <ul class="nav my-5 px-3">
+
+     <button id="close" type="button" class="btn text-white d-block m-2 d-lg-none" data-toggle="offcanvas">X</button>
+     <ul class="nav my-3 px-3">
          <div class="d-flex flex-row justify-content-between align-items-center ">
              <h4>Filter</h4>
              <a class="btn btn-outline-secondary text-center" href="{{ url('watch/all') }}">Reset</a>
@@ -67,3 +69,11 @@
          </div>
      </ul>
  </nav>
+ <script>
+     document.getElementById('close').addEventListener('click', hideSidebar);
+
+     function hideSidebar() {
+         document.getElementById('mobile-nav').classList.remove('open')
+         document.getElementById('back-drop').classList.remove('back-drop')
+     }
+ </script>

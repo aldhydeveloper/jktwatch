@@ -72,9 +72,9 @@
                 <span></span>
                 <span></span>
             </button>
-            <div id="wrap" class="wrap">
+            <div id="wrap" class="wrap p-5">
                 <button id="close-ns" type="button" class="btn text-white d-block ms-auto">X</button>
-                <ul class="nav flex-column">
+                <ul class="nav flex-column text-center mt-5">
                     <li><a href="{{ route('home') }}"
                             class="nav-link {{ $title === 'Home' ? 'link-secondary' : 'link-light' }}">HOME</a></li>
                     <li><a href="/watch/all"

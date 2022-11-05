@@ -84,6 +84,10 @@
                             class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">ABOUT
                             US</a>
                     </li>
+                    <li><a href="{{ route('about') }}"
+                            class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">SELL WITH
+                            US</a>
+                    </li>
                 </ul>
             </div>
         </header>

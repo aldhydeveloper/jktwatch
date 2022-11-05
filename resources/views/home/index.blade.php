@@ -68,48 +68,57 @@
                     @endforeach
 
                 </div>
-                {{-- <div class="col">
-                    <a href="/product">
-                        <figure><img class="img-xs rounded-circle mx-3" src="{{ asset('img/rolex.jpg') }}" alt=""
-                                width="100%"></figure>
-                    </a>
-                    <div class="collection-name">Rolex - 123456</div>
-                </div>
-                <div class="col">
-                    <a href="/product">
-                        <figure><img class="img-xs rounded-circle mx-3" src="{{ asset('img/rolex2.jpg') }}"
-                                alt="" width="100%"></figure>
-                    </a>
 
-                    <div class="collection-name">Rolex daytona - 123456</div>
-                </div> --}}
             </div>
         </div>
         <div class="row text-start hover01 text-light" style="margin-top: 10%">
             <div class="col-6 ">
-                <h3>WOMEN</h3>
-                <a href="watch/all?category=2">
-                    <div class="banner"> <img class="img-xs  mx-3" src="{{ asset('img/women-home.jpeg') }}" alt=""
-                            width="100%" style="border-radius: 35px"></div>
-                </a>
+
+                @foreach ($women as $value)
+                    <?php $cover = 'img/women-home.jpeg';
+                    if ($value->cover) {
+                        $cover = 'storage/' . $value->cover;
+                    }
+                    ?>
+                    <h3>WOMEN</h3>
+                    <a href="watch/all?category={{ $value->id }}">
+                        <div class="banner"> <img class="img-xs  mx-3" src="{{ asset($cover) }}" width="100%"
+                                style="border-radius: 35px"></div>
+                    </a>
+                @endforeach
             </div>
             <div class="col-6">
-                <h3>MEN</h3>
-                <a href="watch/all?category=1">
-                    <div class="banner"> <img class="img-xs  mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                            width="100%" style="border-radius: 35px"></div>
-                </a>
+                @foreach ($man as $value)
+                    <?php $cover = 'img/man-home.jpg';
+                    if ($value->cover) {
+                        $cover = 'storage/' . $value->cover;
+                    }
+                    ?>
+                    <h3>MEN</h3>
+                    <a href="watch/all?category={{ $value->id }}">
+                        <div class="banner"> <img class="img-xs  mx-3" src="{{ asset($cover) }}" alt=""
+                                width="100%" style="border-radius: 35px"></div>
+
+                    </a>
+                @endforeach
             </div>
         </div>
         <div class="row text-start mt-5 hover01 text-light">
             <h3>SPORTY</h3>
             <div class="col-12">
-                <a href="watch/all?category=3">
-                    <div class="banner">
-                        <img class="img-xs  mx-3" src="{{ asset('img/sporty-home.jpg') }}" alt="" width="100%"
-                            height="400vh" style="border-radius: 35px; object-fit: cover;">
-                    </div>
-                </a>
+                @foreach ($sporty as $value)
+                    <?php $cover = 'img/sporty-home.jpg';
+                    if ($value->cover) {
+                        $cover = 'storage/' . $value->cover;
+                    }
+                    ?>
+                    <a href="watch/all?category={{ $value->id }}">
+                        <div class="banner">
+                            <img class="img-xs  mx-3" src="{{ asset($cover) }}" alt="" width="100%"
+                                height="400vh" style="border-radius: 35px; object-fit: cover;">
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
 
@@ -168,18 +177,23 @@
             <div class="swiper-wrapper">
                 @csrf
                 <div class="swiper-slide">
-                    <div>
+                    <div class="m333">
                         <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                            style="border-radius: 35px">
+                            style="border-radius: 35px" width="100%">
                         <p class="mt-3 text-light">All Category</p>
                         <a href="/watch/all" class="btn btn-secondary btn-details">View Details >></a>
                     </div>
                 </div>
                 @foreach ($category as $key => $value)
+                    <?php $cover = 'img/man-home.jpg';
+                    if ($value->cover) {
+                        $cover = 'storage/' . $value->cover;
+                    }
+                    ?>
                     <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
+                        <div class="m333">
+                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 35px"
+                                width="100%">
                             <p class="mt-3 text-light">{{ $value->cat_name }}</p>
                             <a href="/watch/all?category={{ $value->id }}" class="btn btn-secondary ">View Details
                                 >></a>
@@ -187,20 +201,30 @@
                     </div>
                 @endforeach
                 @foreach ($data_size as $key => $value)
+                    <?php $cover = 'img/man-home.jpg';
+                    if ($value->cover) {
+                        $cover = 'storage/' . $value->cover;
+                    }
+                    ?>
                     <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
+                        <div class="m333">
+                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 35px;"
+                                width="100%">
                             <p class="mt-3 text-light">{{ $value->name }}</p>
                             <a href="/watch/all?size={{ $value->id }}" class="btn btn-secondary ">View Details >></a>
                         </div>
                     </div>
                 @endforeach
                 @foreach ($data_model as $key => $value)
+                    <?php $cover = 'img/man-home.jpg';
+                    if ($value->cover) {
+                        $cover = 'storage/' . $value->cover;
+                    }
+                    ?>
                     <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
+                        <div class="m333">
+                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 35px"
+                                width="100%">
                             <p class="mt-3 text-light">{{ $value->name }}</p>
                             <a href="/watch/all?models={{ $value->id }}" class="btn btn-secondary ">View Details
                                 >></a>
@@ -208,10 +232,15 @@
                     </div>
                 @endforeach
                 @foreach ($data_brand as $key => $value)
+                    <?php $cover = 'img/man-home.jpg';
+                    if ($value->cover) {
+                        $cover = 'storage/' . $value->cover;
+                    }
+                    ?>
                     <div class="swiper-slide">
-                        <div>
-                            <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                                style="border-radius: 35px">
+                        <div class="m333">
+                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 35px"
+                                width="100%">
                             <p class="mt-3 text-light">{{ $value->name }}</p>
                             <a href="/watch/all?brand={{ $value->id }}" class="btn btn-secondary ">View Details >></a>
                         </div>

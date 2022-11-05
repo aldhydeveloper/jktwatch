@@ -129,9 +129,10 @@ class CollectionController extends Controller
           $model = Collection::find($id);
         }
         $model->name = $request->name;
-        $model->price = $request->price;
+        $model->price_text = $request->price;
         $model->description = $request->desc;
         $model->year = $request->year;
+        $model->price = 0;
         $model->tags = !empty($tags) ? json_encode($tags) : null;
         // $model->cat_id = $request->category;
         // $model->dial_id = $request->dial;

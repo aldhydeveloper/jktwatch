@@ -1,9 +1,6 @@
 @extends('products.layouts.main')
 
 @section('container')
-    <div class="col-lg-12 col-md-12 text-center">
-        <a href="{{ route('home') }}"><img src="{{ asset('img/logo_white.png') }}" alt="logo" class="logo-all"></a>
-    </div>
     <section class="py-2 text-light">
 
         <div class="container px-4 px-lg-5 my-5">
@@ -61,20 +58,20 @@
                     @endforeach --}}
                     <h1 class="display-5 fw-bolder">{{ @$collections->name }}</h1>
                     <div class="fs-5 my-4">
-                        <h3>IDR {{ number_format(@$collections->price, 0) }}</h3>
+                        <h3>IDR {{ @$collections->price_text }}</h3>
                     </div>
                     <div class="d-flex mb-5">
                         <a href="https://wa.me/6281222998298?text=Hello%20I%20want%20buy%20some%20watch%20{{ @$collections->name }}"
                             class="btn btn-light">SHOP BY WATSHAPP</a>
                     </div>
-                    <p class="lead">L{{ @$collections->description }}</p>
+                    <div class="lead">{!! @$collections->description !!}</div>
 
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-5">
+    <section class="py-1">
         <div class="container px-4 px-lg-5 mt-5">
             <h2 class="fw-bolder mb-4 text-light">Related products</h2>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -98,7 +95,7 @@
                                             {{ implode(', ', $value->size) }}
                                             {{ implode(', ', $value->brand) }} {{ implode(', ', $value->gender) }}
                                         </p>
-                                        IDR {{ number_format(@$value->price, 0) }}
+                                        IDR {{ @$value->price_text }}
                                     </div>
                                 </div>
                             </div>

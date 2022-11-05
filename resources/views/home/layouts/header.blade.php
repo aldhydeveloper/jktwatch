@@ -51,19 +51,27 @@
                     class="nav-link {{ $title === 'Watches' ? 'link-secondary' : 'link-light' }} ">WATCHES</a></li>
             <li><a href="{{ route('about') }}"
                     class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">ABOUT US</a></li>
+            <li><a href="{{ route('about') }}"
+                    class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">ABOUT US</a></li>
+            <li><a href="{{ route('about') }}"
+                    class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">SELL WITH US</a>
+            </li>
         </ul>
     </header>
     <header id="mobile-nav" class="d-block d-lg-none mobile-nav  d-flex">
-        <a class="navbar-brand m-0" href="{{ route('home') }}"><img src="{{ asset('img/logo_white.png') }}"
-                width="120" alt="logo" /></a>
+        <a class="mt-3" href="{{ route('home') }}"><img src="{{ asset('img/logo_white.png') }}" width="120"
+                alt="logo" /></a>
         <button id="burger" type="button" class="burger d-block ms-auto">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <div id="wrap" class="wrap p-5">
-            <button id="close" type="button" class="btn text-white d-block ms-auto">X</button>
-            <ul class="nav flex-column text-center mt-5">
+        <div id="wrap" class="wrap ">
+            <div class="d-flex justify-content-beetwen p-3">
+                <img src="{{ asset('img/jlw white.png') }}" width="65" alt="logo" />
+                <button id="close" type="button" class="btn text-white d-block ms-auto">X</button>
+            </div>
+            <ul class="nav flex-column text-center p-5">
                 <li><a href="{{ route('home') }}"
                         class="nav-link {{ $title === 'Home' ? 'link-secondary' : 'link-light' }}">HOME</a></li>
 
@@ -71,6 +79,10 @@
                         class="nav-link {{ $title === 'Watches' ? 'link-secondary' : 'link-light' }} ">WATCHES</a></li>
                 <li><a href="{{ route('about') }}"
                         class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">ABOUT US</a>
+                </li>
+                <li><a href="{{ route('about') }}"
+                        class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">SELL WITH
+                        US</a>
                 </li>
             </ul>
         </div>

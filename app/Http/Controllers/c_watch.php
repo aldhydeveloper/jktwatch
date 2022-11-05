@@ -130,10 +130,10 @@ class c_watch extends Controller
           }
         }
 
-        
+        $title = "Watches";
         // dd($collections);
         
-         return view('products.index',  compact('category','data_size','data_dials', 'collections', 'tags','data_model','data_brand','related'));
+         return view('products.index',  compact('category','data_size','data_dials', 'collections', 'tags','data_model','data_brand','related', 'title'));
         //
     }
     /**
@@ -248,6 +248,7 @@ class c_watch extends Controller
           'type' => $type,
           'models' => $models,
           'brand' => $brand,
+          'title' => 'Watches',
         ]);
     }
 

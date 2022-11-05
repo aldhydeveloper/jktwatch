@@ -21,9 +21,13 @@ class HomeController extends Controller
         $data_model = Models::where('deleted', false)->get();
         $data_brand = Brand::where('deleted', false)->get();
         $collections = Collection::where('deleted', false)->latest()->take(3)->get();
-        $title = "Home";
         
-        return view("home.index",compact('title','category','data_size','data_dials','data_model','data_brand','collections'));
+        $women = Category::where('id', 2)->get();
+        $man = Category::where('id', 1)->get();
+        $sporty = Category::where('id', 3)->get();
+        $title = "Home";
+        // dd($women);
+        return view("home.index",compact('title','category','data_size','data_dials','data_model','data_brand','collections','women','man','sporty'));
     }
     function watches()
     {   

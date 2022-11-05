@@ -37,6 +37,18 @@
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/trix.css') }}">
+    <script type="text/javascript" src="{{ asset('js/trix.js') }}"></script>
+
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+
+        trix-toolbar [data-trix-button-group="history-tools"] {
+            display: none;
+        }
+    </style>
 
 </head>
 
@@ -71,6 +83,11 @@
     <script src="{{ asset('assets/js/file-upload.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
     @yield('script')
+    <script>
+        documnet.addEventListener('trix-file-accept', function(e) {
+            e.preventDefault();
+        })
+    </script>
 </body>
 
 </html>

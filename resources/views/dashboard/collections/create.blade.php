@@ -28,12 +28,17 @@
                                     <input type="text"
                                         class="form-control @error('price') is-invalid @enderror bg-light text-dark"
                                         id="price" name="price" placeholder="price"
-                                        value="{{ @$collections->price }}">
+                                        value="{{ @$collections->price_text }}">
                                 </div>
                                 <div class="form-group mt-4">
                                     <label for="desc">Description</label>
-                                    <textarea type="text" class="form-control  @error('desc') is-invalid @enderror bg-light text-dark" id="desc"
-                                        name="desc" placeholder="description" rows="3" value=""></textarea>
+                                    {{-- <textarea type="text" class="form-control  @error('desc') is-invalid @enderror bg-light text-dark" id="desc"
+                                        name="desc" placeholder="description" rows="3" value=""></textarea> --}}
+
+                                    <div class="bg-light p-2 text-dark">
+                                        <input id="desc" type="hidden" name="desc">
+                                        <trix-editor input="desc"></trix-editor>
+                                    </div>
                                 </div>
 
                                 <div class="form-group mt-4">

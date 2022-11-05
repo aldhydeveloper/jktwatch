@@ -24,6 +24,7 @@
                                     <a href="{{ url('collections/form') . '/' . $value->id }}">
                                         <div class="card shadow-sm  my-3">
                                             <img class=" card-img-top" width="80%" height="225"
+                                                style="object-fit: cover"
                                                 src="{{ asset('storage/' . $value->image_thumbnail) }}" focusable="false">
                                             </img>
 
@@ -32,7 +33,7 @@
                                                 <h5>{{ implode(', ', $value->models) }} {{ implode(', ', $value->size) }}
                                                     {{ implode(', ', $value->brand) }}
                                                 </h5>
-                                                <a>IDR {{ number_format($value->price, 0) }}</a>
+                                                <a>IDR {{ $value->price_text }}</a>
                                                 <p>{{ $value->year }}</p>
                                             </div>
                                         </div>

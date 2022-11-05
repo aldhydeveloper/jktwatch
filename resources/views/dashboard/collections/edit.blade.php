@@ -34,12 +34,17 @@
                                 <div class="form-group mt-4">
                                     <label for="name">Price</label>
                                     <input type="text" class="form-control bg-light text-dark" id="price"
-                                        name="price" placeholder="price" value="{{ @$collections->price }}">
+                                        name="price" placeholder="price" value="{{ @$collections->price_text }}">
                                 </div>
                                 <div class="form-group mt-4">
                                     <label for="name">Description</label>
-                                    <input type="text" class="form-control bg-light text-dark" id="desc"
-                                        name="desc" placeholder="description" value="{{ @$collections->description }}">
+                                    {{-- <textarea type="text" class="form-control bg-light text-dark" id="desc" name="desc"
+                                        placeholder="description">{{ @$collections->description }}</textarea> --}}
+
+                                    <div class="bg-light p-2 text-dark">
+                                        <input id="desc" type="hidden" name="desc">
+                                        <trix-editor input="desc">{!! @$collections->description !!}</trix-editor>
+                                    </div>
                                 </div>
 
                                 <div class="form-group mt-4">

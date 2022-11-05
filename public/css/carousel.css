@@ -550,3 +550,6 @@ header.masthead .masthead-heading {
     vertical-align: -0.125em;
     fill: currentColor;
 }
+.m333 {
+    max-width: 333px;
+}

@@ -526,6 +526,10 @@ header.masthead .masthead-heading {
 }
 .collection-name {
     margin-top: 30px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: x-large;
     font-weight: bold;
 }

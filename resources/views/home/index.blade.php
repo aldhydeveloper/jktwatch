@@ -55,7 +55,7 @@
                 <div class="row  my-5  hover01 ">
 
                     @foreach ($collections as $key => $value)
-                        <div class="col ">
+                        <div class="col-4">
 
                             <a href="{{ url('watch/form') . '/' . $value->id }}">
                                 <figure><img class="img-xs rounded-circle mx-3"

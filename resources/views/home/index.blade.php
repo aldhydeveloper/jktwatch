@@ -48,31 +48,53 @@
             </button>
         </div>
 
-        <div class="py-5 text-light justify-content-md-center" style="text-align:center ">
-            @csrf
-            <h1>NEW COLLECTION</h1>
-            <div class="container text-center">
-                <div class="row  my-5  hover01 ">
+        <div class="swiper mySwiper mt-5">
+            <h2 class="text-light mb-3">New Collection</h2>
+            <hr class="mt-4" style="border-top: 3px solid;color: #ffffff;">
+            <div class="swiper-wrapper hover01">
+                @csrf
 
-                    @foreach ($collections as $key => $value)
-                        <div class="col-4">
-
-                            <a href="{{ url('watch/form') . '/' . $value->id }}">
-                                <figure><img class="img-xs rounded-circle mx-3"
-                                        src="{{ asset('storage/' . $value->image_thumbnail) }}" alt=""
-                                        width="100%">
-                                </figure>
-                            </a>
-                            <div class="collection-name">{{ $value->name }}</div>
+                @foreach ($collections as $key => $value)
+                    <a class="btn text-light swiper-slide" href="{{ url('watch/form') . '/' . $value->id }}">
+                        <div class="card card-watch ">
+                            <figure><img class="rounded-circle" src="{{ asset('storage/' . $value->image_thumbnail) }}"
+                                    alt="">
+                            </figure>
+                            <div class="card-body">
+                                <div class="card-text collection-name">{{ $value->name }}</div>
+                                <div class="card-text">{{ $value->year }}</div>
+                            </div>
                         </div>
-                    @endforeach
 
-                </div>
+                    </a>
+                @endforeach
 
             </div>
+
+            <hr class="mb-4" style="border-top: 3px solid;color: #ffffff;">
         </div>
-        <div class="row text-start hover01 text-light" style="margin-top: 10%">
-            <div class="col-6 ">
+
+        <div class="gender-body">
+
+            <div class="row hover01 text-light  ">
+
+                @foreach ($man as $value)
+                    <?php $cover = 'img/man-home.jpg';
+                    if ($value->cover) {
+                        $cover = 'storage/' . $value->cover;
+                    }
+                    ?>
+                    <a href="watch/all?category={{ $value->id }}">
+                        <div class="banner">
+                            <img class="img-xs" src="{{ asset($cover) }}" width="100%" height="100%">
+
+                            <span class="collection-title">M A N ' S</span>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+
+            <div class="row  hover01 text-light  mt-2">
 
                 @foreach ($women as $value)
                     <?php $cover = 'img/women-home.jpeg';
@@ -80,32 +102,18 @@
                         $cover = 'storage/' . $value->cover;
                     }
                     ?>
-                    <h3>WOMEN</h3>
                     <a href="watch/all?category={{ $value->id }}">
-                        <div class="banner"> <img class="img-xs  mx-3" src="{{ asset($cover) }}" width="100%"
-                                style="border-radius: 35px"></div>
-                    </a>
-                @endforeach
-            </div>
-            <div class="col-6">
-                @foreach ($man as $value)
-                    <?php $cover = 'img/man-home.jpg';
-                    if ($value->cover) {
-                        $cover = 'storage/' . $value->cover;
-                    }
-                    ?>
-                    <h3>MEN</h3>
-                    <a href="watch/all?category={{ $value->id }}">
-                        <div class="banner"> <img class="img-xs  mx-3" src="{{ asset($cover) }}" alt=""
-                                width="100%" style="border-radius: 35px"></div>
+                        <div class="banner">
+                            <img class="img-xs" src="{{ asset($cover) }}" width="100%" height="100%">
 
+                            <span class="collection-title">W O M E N ' S</span>
+                        </div>
                     </a>
                 @endforeach
             </div>
-        </div>
-        <div class="row text-start mt-5 hover01 text-light">
-            <h3>SPORTY</h3>
-            <div class="col-12">
+
+            <div class="row hover01 text-light mt-2">
+
                 @foreach ($sporty as $value)
                     <?php $cover = 'img/sporty-home.jpg';
                     if ($value->cover) {
@@ -114,74 +122,31 @@
                     ?>
                     <a href="watch/all?category={{ $value->id }}">
                         <div class="banner">
-                            <img class="img-xs  mx-3" src="{{ asset($cover) }}" alt="" width="100%"
-                                height="400vh" style="border-radius: 35px; object-fit: cover;">
+                            <img class="img-xs" src="{{ asset($cover) }}" width="100%" height="100%">
+
+                            <span class="collection-title">S P O R T S</span>
                         </div>
                     </a>
                 @endforeach
             </div>
+
+        </div>
+        <div class="text-light text-center" style="margin-top: 70px; max-height= 340px">
+            <img class="" src="{{ asset('img/poster-example.jpg') }}" width="100%" height="100%"
+                style="object-fit: cover">
         </div>
 
-        <div class="text-light text-center" style="margin-top: 2%">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In nisi hic veritatis quia quas ullam eius
-                aut
-                atque ab nam veniam provident dignissimos aliquam eveniet, perferendis ut ex ipsum amet quis
-                eligendi
-                iusto earum sequi? Accusamus eligendi perspiciatis harum veniam explicabo quisquam obcaecati odit,
-                ea
-                possimus alias vel libero, adipisci pariatur illum fugiat sit tenetur ipsum, commodi repellendus
-                maxime
-                omnis ipsam! Architecto aspernatur necessitatibus quam eius aut suscipit magnam, deserunt neque
-                fugiat
-                similique culpa aliquid nobis deleniti ad dolorem sit! Quidem numquam vero facilis ex quasi ut ea
-                consequuntur, voluptate animi, labore possimus at saepe? Sed porro dolorum cupiditate consequatur
-                eos
-                enim voluptas iure laborum doloribus! Ipsam, dolore neque. Voluptatibus aut eligendi deleniti harum
-                ducimus vel. Ipsa voluptates, necessitatibus fuga omnis nesciunt quo. Optio fugit cum culpa ad
-                quisquam
-                non sed odit corrupti dolor quia unde molestias, voluptate dolore qui id eveniet omnis velit, saepe
-                aliquam vitae. Repellat repellendus dignissimos voluptates praesentium odit sint dicta cum quae
-                eveniet
-                fuga, explicabo, optio est error reprehenderit esse. Tenetur eligendi a ipsa molestiae expedita
-                cupiditate beatae, architecto iste, vel suscipit rem asperiores magnam? Ex non, ullam, nobis
-                similique
-                in doloremque iste reiciendis officia unde minima error veritatis? Incidunt suscipit consectetur ex,
-                asperiores unde ipsam ipsum vel autem! Mollitia sint veniam dolor harum excepturi minus maiores
-                repellendus magnam laboriosam libero reprehenderit, commodi earum repudiandae iusto accusantium,
-                blanditiis voluptate vitae unde ut rem a culpa! Eaque veritatis quas fugiat. Corporis dicta modi
-                ducimus
-                quod eum enim officiis molestiae iusto. Suscipit, harum veritatis molestias provident molestiae
-                alias
-                neque repudiandae. Magnam similique ipsum tempora? Assumenda accusantium, voluptatum consectetur ex
-                debitis fugiat repellat saepe iure porro modi ipsam quis, ab eveniet obcaecati dolor fuga, quae
-                tenetur
-                dolorem. Dignissimos, tenetur et magni doloribus perspiciatis quos architecto error deserunt, quo
-                nam
-                iste ducimus sequi nihil consequuntur vitae nostrum corrupti pariatur eum sint debitis, blanditiis
-                asperiores? Eveniet deleniti veritatis repudiandae aut minus atque corrupti sunt ab incidunt
-                consectetur
-                fugit ullam ipsa nobis sit quas nulla vel, eaque itaque suscipit, laborum iusto! Ratione repellendus
-                dolorum voluptatum? Ipsam dicta expedita voluptatibus natus iusto quas at voluptatem dolorem
-                numquam,
-                accusantium nemo inventore a commodi, error eaque facilis quisquam quibusdam omnis magnam, iste
-                totam
-                ut. Suscipit praesentium fuga facilis unde natus temporibus nihil corporis veniam placeat minima
-                velit
-                corrupti excepturi neque magni, ipsum eum itaque labore. Molestiae laboriosam et explicabo deleniti.
-                Cum, eveniet. Inventore exercitationem excepturi illo aut animi molestiae fuga magnam. Accusantium,
-                laudantium voluptatibus.</p>
-        </div>
-
-        <div class="swiper mySwiper mt-5">
-            <h1 class="text-light text-center ">CATEGORY</h1>
+        <div class="swiper mySwiper category-body">
+            <h2 class="text-light ">Watch Category</h2>
+            <hr class="mt-4" style="border-top: 3px solid;color: #ffffff;">
             <div class="swiper-wrapper">
                 @csrf
                 <div class="swiper-slide">
                     <div class="m333">
                         <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                            style="border-radius: 35px" width="100%">
-                        <p class="mt-3 text-light">All Category</p>
-                        <a href="/watch/all" class="btn btn-secondary btn-details">View Details >></a>
+                            style="border-radius: 100px" width="100%">
+                        <p class="mt-3 text-light  category-name">All Category</p>
+                        <a href="/watch/all" class="btn btn-secondary btn-details view-detail">View Details >></a>
                     </div>
                 </div>
                 @foreach ($category as $key => $value)
@@ -192,10 +157,11 @@
                     ?>
                     <div class="swiper-slide">
                         <div class="m333">
-                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 35px"
+                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 100px"
                                 width="100%">
-                            <p class="mt-3 text-light">{{ $value->cat_name }}</p>
-                            <a href="/watch/all?category={{ $value->id }}" class="btn btn-secondary ">View Details
+                            <p class="mt-3 text-light category-name">{{ $value->cat_name }}</p>
+                            <a href="/watch/all?category={{ $value->id }}" class="btn btn-secondary view-detail">View
+                                Details
                                 >></a>
                         </div>
                     </div>
@@ -208,10 +174,11 @@
                     ?>
                     <div class="swiper-slide">
                         <div class="m333">
-                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 35px;"
+                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 100px;"
                                 width="100%">
-                            <p class="mt-3 text-light">{{ $value->name }}</p>
-                            <a href="/watch/all?size={{ $value->id }}" class="btn btn-secondary ">View Details >></a>
+                            <p class="mt-3 text-light  category-name">{{ $value->name }}</p>
+                            <a href="/watch/all?size={{ $value->id }}" class="btn btn-secondary view-detail ">View
+                                Details >></a>
                         </div>
                     </div>
                 @endforeach
@@ -223,10 +190,11 @@
                     ?>
                     <div class="swiper-slide">
                         <div class="m333">
-                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 35px"
+                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 100px"
                                 width="100%">
-                            <p class="mt-3 text-light">{{ $value->name }}</p>
-                            <a href="/watch/all?models={{ $value->id }}" class="btn btn-secondary ">View Details
+                            <p class="mt-3 text-light  category-name">{{ $value->name }}</p>
+                            <a href="/watch/all?models={{ $value->id }}" class="btn btn-secondary view-detail">View
+                                Details
                                 >></a>
                         </div>
                     </div>
@@ -239,10 +207,11 @@
                     ?>
                     <div class="swiper-slide">
                         <div class="m333">
-                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 35px"
+                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 100px"
                                 width="100%">
-                            <p class="mt-3 text-light">{{ $value->name }}</p>
-                            <a href="/watch/all?brand={{ $value->id }}" class="btn btn-secondary ">View Details >></a>
+                            <p class="mt-3 text-light category-name">{{ $value->name }}</p>
+                            <a href="/watch/all?brand={{ $value->id }}" class="btn btn-secondary view-detail ">View
+                                Details >></a>
                         </div>
                     </div>
                 @endforeach
@@ -250,6 +219,36 @@
             </div>
             <div class="swiper-button-next text-light ns-none"></div>
             <div class="swiper-button-prev text-light ns-none"></div>
+        </div>
+
+        <hr class="my-5" style="border-top: 3px solid;color: #ffffff;">
+        <div class="container mb-5">
+            <div class="row d-flex justify-content-center text-dark">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                    <h2 class="text-light">Contact Us </h2>
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <div class="d-flex flex-start w-100">
+                                <img class="rounded-circle shadow-1-strong me-3"
+                                    src="{{ asset('img/logo_white_circle_black.png') }}" alt="avatar" width="65"
+                                    height="65" />
+                                <div class="w-100">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="textAreaExample">What is your view?</label>
+                                        <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-3">
+                                        <div></div>
+                                        <a type="button" class="btn btn-success">
+                                            Send to whatsapp
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

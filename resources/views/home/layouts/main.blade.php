@@ -43,10 +43,17 @@
 
     <!-- Initialize Swiper -->
     <script>
+        var widthMobile = 900;
+        var spv = 0;
+        if (screen.width > widthMobile) {
+            spv = 5;
+        } else {
+            spv = 3;
+        }
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            slidesPerGroup: 3,
+            slidesPerView: spv,
+            spaceBetween: 10,
+            slidesPerGroup: spv,
             loop: true,
             loopFillGroupWithBlank: true,
             pagination: {

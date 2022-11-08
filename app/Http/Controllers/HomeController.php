@@ -20,7 +20,7 @@ class HomeController extends Controller
         $data_dials = Dials::where('deleted', false)->get();
         $data_model = Models::where('deleted', false)->get();
         $data_brand = Brand::where('deleted', false)->get();
-        $collections = Collection::where('deleted', false)->latest()->take(3)->get();
+        $collections = Collection::where('deleted', false)->latest()->take(5)->get();
         
         $women = Category::where('id', 2)->get();
         $man = Category::where('id', 1)->get();

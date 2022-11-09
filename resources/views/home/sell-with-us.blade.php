@@ -29,7 +29,7 @@
                 impian anda. Kami akan mencarikan jam secepat mungkin dan menyiapkannya untuk anda bawa pulang.
             </div>
 
-            <a class="btn btn-wa mt-3">
+            <a class="btn btn-wa my-5">
                 Contact us Via Whatsapp
             </a>
 

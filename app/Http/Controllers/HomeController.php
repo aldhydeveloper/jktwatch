@@ -37,4 +37,9 @@ class HomeController extends Controller
     {   
         return view("home.about",["title" => "About Us"]);
     }
+    
+    function sell()
+    {   
+        return view("home.sell-with-us",["title" => "Sell With Us"]);
+    }
 }

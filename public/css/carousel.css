@@ -585,6 +585,36 @@ header.masthead .masthead-heading {
     .view-detail {
         font-size: 11px !important;
     }
+    .title-why-us {
+        font-size: 14px !important;
+        font-weight: bold !important;
+        text-align: center;
+    }
+    .card-why-us {
+        padding: 10px !important;
+        height: auto !important;
+        margin: 0px 5px !important;
+    }
+    .desc-why-us {
+        font-size: 12px !important;
+        text-align: center;
+    }
+    .img-why-us {
+        width: 150px !important;
+    }
+
+    .img-why-us-rounded {
+        width: 150px !important;
+    }
+    .cover-img-about-us {
+        margin-top: 30px;
+    }
+
+    .card-sell-with-us {
+        margin-top: 30px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
 }
 
 @media (max-width: 992px) {
@@ -613,4 +643,68 @@ header.masthead .masthead-heading {
 }
 .category-body {
     margin-top: 60px;
+}
+
+.body-cover {
+    position: relative;
+}
+
+.title-about-us {
+    position: absolute;
+}
+.cover-img-about-us {
+    object-fit: cover;
+    max-height: 500px;
+    width: 100%;
+    margin-bottom: 60px;
+    border-radius: 10px;
+}
+.card-why-us {
+    background-color: white;
+    border-radius: 10px;
+    width: 400px;
+    padding: 20px;
+    height: 165px;
+    margin: 10px 10px;
+}
+.title-why-us {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.img-why-us {
+    width: 200px;
+    border-radius: 10px;
+    margin: 20px 20px;
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25) !important;
+}
+
+.img-why-us-rounded {
+    width: 200px;
+    margin: 20px 20px;
+    border-radius: 100px !important;
+    box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.25) !important;
+}
+.card-sell-with-us {
+    border: 2px white solid;
+    border-radius: 20px;
+    padding: 20px 50px;
+    margin: 0 40px;
+}
+.headline-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.headline-body {
+    margin-bottom: 10px;
+}
+.btn-wa {
+    background-color: black;
+    color: white;
+}
+
+.btn-wa:hover {
+    background-color: green;
 }

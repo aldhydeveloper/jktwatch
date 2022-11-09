@@ -59,8 +59,9 @@
                 <li><a href="{{ route('about') }}"
                         class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">ABOUT US</a>
                 </li>
-                <li><a href="{{ route('about') }}"
-                        class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">SELL WITH US</a>
+                <li><a href="{{ route('sell') }}"
+                        class="nav-link {{ $title === 'Sell With Us' ? 'link-secondary' : 'link-light' }} ">SELL WITH
+                        US</a>
                 </li>
             </ul>
         </header>
@@ -84,8 +85,9 @@
                             class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">ABOUT
                             US</a>
                     </li>
-                    <li><a href="{{ route('about') }}"
-                            class="nav-link {{ $title === 'About Us' ? 'link-secondary' : 'link-light' }} ">SELL WITH
+                    <li><a href="{{ route('sell') }}"
+                            class="nav-link {{ $title === 'Sell With Us' ? 'link-secondary' : 'link-light' }} ">SELL
+                            WITH
                             US</a>
                     </li>
                 </ul>

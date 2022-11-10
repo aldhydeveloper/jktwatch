@@ -86,7 +86,7 @@
                     ?>
                     <a href="watch/all?category={{ $value->id }}">
                         <div class="banner">
-                            <img class="img-xs" src="{{ asset($cover) }}" width="100%" height="100%">
+                            <img class="img-xs" src="{{ asset('img/Men_s Collection.jpg') }}">
 
                             <span class="collection-title">M A N ' S</span>
                         </div>
@@ -104,7 +104,7 @@
                     ?>
                     <a href="watch/all?category={{ $value->id }}">
                         <div class="banner">
-                            <img class="img-xs" src="{{ asset($cover) }}" width="100%" height="100%">
+                            <img class="img-xs" src="{{ asset('img/Women_s Collection.jpg') }}">
 
                             <span class="collection-title">W O M E N ' S</span>
                         </div>
@@ -122,9 +122,9 @@
                     ?>
                     <a href="watch/all?category={{ $value->id }}">
                         <div class="banner">
-                            <img class="img-xs" src="{{ asset($cover) }}" width="100%" height="100%">
+                            <img class="img-xs" src="{{ asset('img/Sports Collection.jpg') }}">
 
-                            <span class="collection-title">S P O R T S</span>
+                            <span class="collection-title text-light">S P O R T S</span>
                         </div>
                     </a>
                 @endforeach

@@ -47,7 +47,6 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
         <div class="swiper mySwiper mt-5">
             <h2 class="text-light mb-3">New Collection</h2>
             <hr class="mt-4" style="border-top: 3px solid;color: #ffffff;">
@@ -74,6 +73,10 @@
             <hr class="mb-4" style="border-top: 3px solid;color: #ffffff;">
         </div>
 
+    </div>
+
+    <div class="container marketing d-lg-block d-none">
+
         <div class="gender-body">
 
             <div class="row hover01 text-light  ">
@@ -88,25 +91,7 @@
                         <div class="banner">
                             <img class="img-xs" src="{{ asset('img/Men_s Collection.jpg') }}">
 
-                            <span class="collection-title">M A N ' S</span>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
-
-            <div class="row  hover01 text-light  mt-2">
-
-                @foreach ($women as $value)
-                    <?php $cover = 'img/women-home.jpeg';
-                    if ($value->cover) {
-                        $cover = 'storage/' . $value->cover;
-                    }
-                    ?>
-                    <a href="watch/all?category={{ $value->id }}">
-                        <div class="banner">
-                            <img class="img-xs" src="{{ asset('img/Women_s Collection.jpg') }}">
-
-                            <span class="collection-title">W O M E N ' S</span>
+                            <span class="collection-title">M E N ' S</span>
                         </div>
                     </a>
                 @endforeach
@@ -130,7 +115,86 @@
                 @endforeach
             </div>
 
+            <div class="row  hover01 text-light  mt-2">
+
+                @foreach ($women as $value)
+                    <?php $cover = 'img/women-home.jpeg';
+                    if ($value->cover) {
+                        $cover = 'storage/' . $value->cover;
+                    }
+                    ?>
+                    <a href="watch/all?category={{ $value->id }}">
+                        <div class="banner">
+                            <img class="img-xs" src="{{ asset('img/Women_s Collection.jpg') }}">
+
+                            <span class="collection-title">W O M E N ' S</span>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+
         </div>
+    </div>
+
+    <div class="gender-body d-lg-none d-block ">
+
+        <div class="hover01 text-light  ">
+
+            @foreach ($man as $value)
+                <?php $cover = 'img/man-home.jpg';
+                if ($value->cover) {
+                    $cover = 'storage/' . $value->cover;
+                }
+                ?>
+                <a href="watch/all?category={{ $value->id }}">
+                    <div class="banner">
+                        <img class="img-xs" src="{{ asset('img/Men_s Collection.jpg') }}">
+
+                        <span class="collection-title">M E N ' S</span>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+
+        <div class="hover01 text-light mt-2">
+
+            @foreach ($sporty as $value)
+                <?php $cover = 'img/sporty-home.jpg';
+                if ($value->cover) {
+                    $cover = 'storage/' . $value->cover;
+                }
+                ?>
+                <a href="watch/all?category={{ $value->id }}">
+                    <div class="banner">
+                        <img class="img-xs" src="{{ asset('img/Sports Collection.jpg') }}">
+
+                        <span class="collection-title text-light">S P O R T S</span>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+
+        <div class="hover01 text-light  mt-2">
+
+            @foreach ($women as $value)
+                <?php $cover = 'img/women-home.jpeg';
+                if ($value->cover) {
+                    $cover = 'storage/' . $value->cover;
+                }
+                ?>
+                <a href="watch/all?category={{ $value->id }}">
+                    <div class="banner">
+                        <img class="img-xs" src="{{ asset('img/Women_s Collection.jpg') }}">
+
+                        <span class="collection-title">W O M E N ' S</span>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+
+    </div>
+
+    <div class="container marketing">
         <div class="text-light text-center" style="margin-top: 70px; max-height= 340px">
             <img class="" src="{{ asset('img/poster-example.jpg') }}" width="100%" height="100%"
                 style="object-fit: cover">

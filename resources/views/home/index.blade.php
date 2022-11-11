@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="header-all">
-        <video src="{{ asset('video/cinematic.mp4') }}" autoplay loop muted class="back-video">
+        <video src="{{ asset('video/cinematic-2.mp4') }}" autoplay loop muted class="back-video">
         </video>
         <div class="content">
             <div class="heading-all">LUXURY WATCH</div>
@@ -20,20 +20,17 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="bd-placeholder-img" width="100%" height="100%"
-                        src="{{ @asset('img/asset 1 6oktober.jpg') }}">
+                    <img class="bd-placeholder-img" width="100%" height="100%" src="{{ @asset('img/banner-1.jpg') }}">
                     </img>
 
                 </div>
                 <div class="carousel-item">
-                    <img class="bd-placeholder-img" width="100%" height="100%"
-                        src="{{ @asset('img/asset 2 6oktober.jpg') }}">
+                    <img class="bd-placeholder-img" width="100%" height="100%" src="{{ @asset('img/banner-2.jpg') }}">
                     </img>
 
                 </div>
                 <div class="carousel-item">
-                    <img class="bd-placeholder-img" width="100%" height="100%"
-                        src="{{ @asset('img/asset 4 6oktober.jpg') }}">
+                    <img class="bd-placeholder-img" width="100%" height="100%" src="{{ @asset('img/banner-3.jpg') }}">
                     </img>
 
                 </div>

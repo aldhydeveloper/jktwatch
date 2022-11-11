@@ -4,7 +4,7 @@
     <div class="container">
 
         <!-- START THE FEATURETTES -->
-
+        <img class="cover-img-sell-us" src="{{ asset('img/lwk banner.jpg') }}" alt="cover">
         <div class="text-center text-light card-sell-with-us">
             <div class="headline-title">Ingin menjual jam anda tanpa ribet dan cepat ?</div>
             <div class="headline-body">Jual jam anda dengan Jakarta Luxury watch. Kontak staff kami melaui WhatsApp, jelaskan

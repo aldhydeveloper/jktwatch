@@ -660,6 +660,13 @@ header.masthead .masthead-heading {
     margin-bottom: 60px;
     border-radius: 10px;
 }
+
+.cover-img-sell-us {
+    object-fit: cover;
+    width: 100%;
+    margin-bottom: 60px;
+    border-radius: 10px;
+}
 .card-why-us {
     background-color: white;
     border-radius: 10px;

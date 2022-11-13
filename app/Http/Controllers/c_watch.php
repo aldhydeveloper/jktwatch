@@ -62,14 +62,23 @@ class c_watch extends Controller
         $x = 0;
         $related =[];
         $newRelated = $this->getRelatedWatch($tags,$id);
+        $relatedNotDelete = [];
+          // dd($newRelated);
           if ($newRelated){
             foreach($newRelated as $k => $v){
               if ($v->id <> $id && $v->deleted == 0) {
+                $relatedNotDelete[] = $v;
+              }
+            }
+          if ($relatedNotDelete) {
+            foreach($relatedNotDelete as $k => $v){
+              if ($x < 6) {
                 $related[] = $v;
               }
               $x++;
             }
-          // dd($related);
+          }
+          // dd($related, $x);
           if ($related) {
             foreach($related as $k => $v){
           $arr_tags = json_decode($v->tags);
@@ -277,9 +286,39 @@ class c_watch extends Controller
       $where = implode(' OR ', $contains);
       $where = !empty($where) ? $where . ' AND deleted = 0' : 'deleted = 0' ;
       // dd($where);
-      $collection = DB::select("SELECT * FROM collections WHERE $where AND id <> $id AND id <> $id");
+      $collection = DB::select("SELECT * FROM collections WHERE $where AND id <> $id AND id <> $id ");
 
       return $collection;
+    }
+    
+    public function getRelatedWatchMaxSix($params, $id){
+      // $params = $request->all();
+      dd($params);
+      $category = "";
+      $size = "";
+      $brand = "";
+      foreach($v as $v2){
+        if($k === "category") {
+          $tags[$k] ="$v2";
+        }
+        if($k === "size") {
+          $tags[$k] ="$v2";
+        }
+        if($k === "brand") {
+          $tags[$k] = "$v2";
+        }
+              // $tags[$i] = $k . '-' .$v2;
+        $i++;
+      }
+      $collection = DB::table('collections')
+            ->where('votes', '>', 100)
+            ->orWhere(function($query) {
+                $query->where('name', 'Abigail')
+                      ->where('votes', '>', 50);
+            })
+            ->get();
+
+      return array_reverse($collection) ;
     }
     /**
      * Show the form for editing the specified resource.

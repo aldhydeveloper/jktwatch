@@ -62,7 +62,7 @@
                     </div>
                     <div class="d-flex mb-5">
                         <a href="https://wa.me/628118089992?text=Halo,%20Saya%20Ingin%20bertanya%20tentang%20Jam%20{{ @$collections->name }}"
-                            class="btn btn-wa ">SHOP BY WATSHAPP</a>
+                            class="btn btn-wa ">SHOP BY WHATSHAPP</a>
                     </div>
                     <div class="lead">{!! @$collections->description !!}</div>
 
@@ -71,104 +71,6 @@
         </div>
     </section>
 
-    <section class="py-1">
-        <div class="container px-4 px-lg-5 mt-5">
-            <h2 class="fw-bolder mb-4 text-light">Related products</h2>
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-                @csrf
-
-                @foreach ($related as $key => $value)
-                    @php $value = (object) $value @endphp
-                    <a class="btn" href="{{ url('watch/form') . '/' . $value->id }}">
-                        <div class="col mb-5">
-                            <div class="card bg-grey h-100">
-                                <!-- Product image-->
-                                <img class="card-img-top" src="{{ asset('storage/' . @$value->image_thumbnail) }}" />
-                                <!-- Product details-->
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <!-- Product name-->
-                                        <h5 class="fw-bolder">{{ $value->name }}</h5>
-                                        <!-- Product price-->
-
-                                        IDR {{ @$value->price_text }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                @endforeach
-
-                {{-- <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Special Item</h5>
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Sale Item</h5>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$50.00</span>
-                                $25.00
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-                                $40.00
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-                                $40.00
-                            </div>
-                        </div>
-
-                    </div>
-                </div> --}}
-            </div>
-        </div>
-    </section>
+    @include('products.components.related')
 @endsection

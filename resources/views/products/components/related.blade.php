@@ -25,7 +25,7 @@
     }
 
     .img-ns {
-        height: 115px !important;
+        height: 350px !important;
     }
 
     .text-collections-name {
@@ -49,7 +49,7 @@
         }
 
         .img-ns {
-            height: 130px;
+            height: 115px !important;
         }
 
         .text-collections-name {
@@ -68,7 +68,7 @@
     }
 </style>
 <section class="py-1">
-    <div class=" px-2 px-lg-5">
+    <div class="container px-2 px-lg-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             <div class="swiper mt-5">
                 <h2 class="text-light mb-3 px-3">New Collection</h2>

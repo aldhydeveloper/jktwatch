@@ -14,7 +14,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/ns.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/ns.css') }}?version=2">
 </head>
 
 <body class="bg-black">

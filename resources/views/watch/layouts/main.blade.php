@@ -27,8 +27,8 @@
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('watch/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/ns.css') }}">
+    <link rel="stylesheet" href="{{ asset('watch/css/style.css') }}?version=2">
+    <link rel="stylesheet" href="{{ asset('css/ns.css') }}?version=2">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/footers/">
     {{-- <link rel="stylesheet" href="assets/css/style.css"> --}}

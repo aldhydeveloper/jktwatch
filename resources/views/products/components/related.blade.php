@@ -71,7 +71,7 @@
     <div class="container px-2 px-lg-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             <div class="swiper mt-5">
-                <h2 class="text-light mb-3 px-3">New Collection</h2>
+                <h2 class="text-light mb-3 px-3">Related Products</h2>
                 <div class="swiper-wrapper ">
                     @csrf
 

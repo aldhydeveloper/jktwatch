@@ -100,5 +100,6 @@ class c_brand extends Controller
          $model = Brand::find($id);
         $model->deleted = true;
         $model->save();
+        return redirect('category');
     }
 }

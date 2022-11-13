@@ -13,7 +13,8 @@
 .grid > article {
     border-radius: 10px;
     text-align: center;
-    background: white;
+    background: #191c24;
+    color: white;
 }
 
 .grid > article:hover {
@@ -29,26 +30,28 @@
     margin-bottom: 13px;
     font-family: "Lucida Sans";
     /* font-weight: 500; */
-    color: gray;
+    color: white;
     font-size: 15px;
 }
 .watch-title {
     margin-bottom: 10px;
     font-family: "Lucida Sans";
     /* font-weight: 500; */
+    color: white;
     font-size: 18px;
 }
 
 .watch-price {
     margin-bottom: 10px;
     font-family: "Lucida Sans";
+    color: white;
     font-size: 16px;
 }
 
 .watch-year {
     font-family: "Lucida Sans";
     /* font-weight: 500; */
-    color: gray;
+    color: white;
     font-size: 15px;
 }
 
@@ -98,4 +101,34 @@
         width: 250px;
         height: 250px;
     }
+}
+
+.bg-grey {
+    background-color: #191c24;
+    border-width: 0;
+    color: white;
+}
+
+.bg-btn-grey {
+    background: #191c24;
+    border-width: 0;
+    color: white;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.bi {
+    vertical-align: -0.125em;
+    fill: currentColor;
+}
+
+.btn-wa {
+    background-color: gray;
+    color: white;
+}
+
+.btn-wa:hover {
+    background-color: green;
 }

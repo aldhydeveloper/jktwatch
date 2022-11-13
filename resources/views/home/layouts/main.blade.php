@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <!-- Custom styles for this template -->
     <link href="/css/headers.css" rel="stylesheet">
-    <link href="/css/carousel.css?{{ time() }}" rel="stylesheet">
+    <link href="/css/carousel.css?version=2" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
     <link href="/css/sidebars.css" rel="stylesheet">
@@ -22,12 +22,12 @@
 
 </head>
 
-<body class="bg-dark">
+<body class="bg-black">
 
     {{-- @include('home.layouts.sidebar') --}}
 
     @include('home.layouts.header')
-
+    @include('components.floating-wa')
     @yield('container')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">

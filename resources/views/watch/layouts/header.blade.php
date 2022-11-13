@@ -41,7 +41,7 @@
     .mobile-nav.open {}
 
     .bg-default {
-        background-color: #191c24;
+        background-color: black;
     }
 </style>
 
@@ -100,8 +100,8 @@
                 <?php $num++; ?>
             @endforeach
             <div class="text-center">{{ $num }} product</div>
-            <button class=" btn-light navbar-toggler-right  align-self-center" type="button" data-toggle="offcanvas">
-                <a class="btn btn-light">FILTER</a>
+            <button class="btn btn-outline-secondary  align-self-center" type="button" data-toggle="offcanvas">
+                FILTER
             </button>
         </div>
     </div>

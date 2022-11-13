@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('watch/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ns.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/footers/">
     {{-- <link rel="stylesheet" href="assets/css/style.css"> --}}
     <!-- End layout styles -->
     <link href="{{ asset('img/logo_white_square_black.jpg') }}" rel="icon" />
@@ -41,12 +42,13 @@
 
 </head>
 
-<body>
+<body class="bg-black">
 
     @include('watch.layouts.sidebar')
 
     @include('watch.layouts.header')
 
+    @include('components.floating-wa')
     <div class="container-scroller">
 
         <div class="main-panel ">
@@ -55,6 +57,7 @@
         </div>
 
     </div>
+    @include('watch.layouts.footer')
 
     <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('assets/vendors/chart.js/Chart.min.js') }}"></script>

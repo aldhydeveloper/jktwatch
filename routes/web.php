@@ -33,6 +33,7 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 Route::get('/watches',[HomeController::class, 'watches'])->name('watches');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/sell-with-us',[HomeController::class, 'sell'])->name('sell');
+Route::get('/available-brand',[HomeController::class, 'available_brand'])->name('avaible_brand');
 
 Route::get('/dashboard',[MainController::class, 'index'])->middleware(['auth'])->name('dashboard');
 Route::get('/products',[MainController::class, 'product'])->name('products');

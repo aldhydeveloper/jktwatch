@@ -61,8 +61,8 @@
                         <h3>IDR {{ @$collections->price_text }}</h3>
                     </div>
                     <div class="d-flex mb-5">
-                        <a href="https://wa.me/6281222998298?text=Hello%20I%20want%20buy%20some%20watch%20{{ @$collections->name }}"
-                            class="btn btn-light">SHOP BY WATSHAPP</a>
+                        <a href="https://wa.me/628118089992?text=Halo,%20Saya%20Ingin%20bertanya%20tentang%20Jam%20{{ @$collections->name }}"
+                            class="btn btn-wa ">SHOP BY WATSHAPP</a>
                     </div>
                     <div class="lead">{!! @$collections->description !!}</div>
 
@@ -82,7 +82,7 @@
                     @php $value = (object) $value @endphp
                     <a class="btn" href="{{ url('watch/form') . '/' . $value->id }}">
                         <div class="col mb-5">
-                            <div class="card h-100">
+                            <div class="card bg-grey h-100">
                                 <!-- Product image-->
                                 <img class="card-img-top" src="{{ asset('storage/' . @$value->image_thumbnail) }}" />
                                 <!-- Product details-->
@@ -91,10 +91,7 @@
                                         <!-- Product name-->
                                         <h5 class="fw-bolder">{{ $value->name }}</h5>
                                         <!-- Product price-->
-                                        <p class="fst-italic fw-semibold">{{ implode(', ', $value->models) }}
-                                            {{ implode(', ', $value->size) }}
-                                            {{ implode(', ', $value->brand) }} {{ implode(', ', $value->gender) }}
-                                        </p>
+
                                         IDR {{ @$value->price_text }}
                                     </div>
                                 </div>

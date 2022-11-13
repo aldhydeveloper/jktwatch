@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="header-all">
-        <video src="{{ asset('video/cinematic-2.mp4') }}" autoplay loop muted class="back-video">
+        <video src="{{ asset('video/cinematic-2_Trim.mp4') }}" autoplay loop muted class="back-video">
         </video>
         <div class="content">
             <div class="heading-all">LUXURY WATCH</div>
@@ -44,6 +44,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+
         <div class="swiper mySwiper mt-5">
             <h2 class="text-light mb-3">New Collection</h2>
             <hr class="mt-4" style="border-top: 3px solid;color: #ffffff;">
@@ -51,14 +52,14 @@
                 @csrf
 
                 @foreach ($collections as $key => $value)
-                    <a class="btn text-light swiper-slide" href="{{ url('watch/form') . '/' . $value->id }}">
+                    <a class="btn p-0 text-light swiper-slide" href="{{ url('watch/form') . '/' . $value->id }}">
                         <div class="card card-watch ">
                             <figure><img class="rounded-circle" src="{{ asset('storage/' . $value->image_thumbnail) }}"
                                     alt="">
                             </figure>
-                            <div class="card-body">
+                            <div class="card-body px-0">
                                 <div class="card-text collection-name">{{ $value->name }}</div>
-                                <div class="card-text">{{ $value->year }}</div>
+                                <div class="card-text collection-year">{{ $value->year }}</div>
                             </div>
                         </div>
 
@@ -67,6 +68,10 @@
 
             </div>
 
+            <div class="d-block d-lg-none">
+                <div class="swiper-button-next fs-4 text-light"></div>
+                <div class="swiper-button-prev fs-4 text-light"></div>
+            </div>
             <hr class="mb-4" style="border-top: 3px solid;color: #ffffff;">
         </div>
 
@@ -147,7 +152,7 @@
                     <div class="banner">
                         <img class="img-xs" src="{{ asset('img/Men_s Collection.jpg') }}">
 
-                        <span class="collection-title">M E N ' S</span>
+                        <span class="collection-title">MEN'S</span>
                     </div>
                 </a>
             @endforeach
@@ -165,7 +170,7 @@
                     <div class="banner">
                         <img class="img-xs" src="{{ asset('img/Sports Collection.jpg') }}">
 
-                        <span class="collection-title text-light">S P O R T S</span>
+                        <span class="collection-title text-light">SPORTS</span>
                     </div>
                 </a>
             @endforeach
@@ -183,7 +188,7 @@
                     <div class="banner">
                         <img class="img-xs" src="{{ asset('img/Women_s Collection.jpg') }}">
 
-                        <span class="collection-title">W O M E N ' S</span>
+                        <span class="collection-title">WOMEN'S</span>
                     </div>
                 </a>
             @endforeach
@@ -193,123 +198,113 @@
 
     <div class="container marketing">
         <div class="text-light text-center" style="margin-top: 70px; max-height= 340px">
-            <img class="" src="{{ asset('img/poster-example.jpg') }}" width="100%" height="100%"
+            <img class="" src="{{ asset('img/banner-poster.jpg') }}" width="100%" height="100%"
                 style="object-fit: cover">
         </div>
 
-        <div class="swiper mySwiper category-body">
-            <h2 class="text-light ">Watch Category</h2>
+        <div class="swiper mySwiper category-body align-items-center">
+            <div class="d-flex flex-row justify-content-between ">
+                <h2 class="text-light ">Available Brands</h2>
+                <a href="{{ route('avaible_brand') }}" class=" btn">More ></a>
+            </div>
             <hr class="mt-4" style="border-top: 3px solid;color: #ffffff;">
             <div class="swiper-wrapper">
-                @csrf
-                <div class="swiper-slide">
+                <div class="swiper-slide  h100-m">
                     <div class="m333">
-                        <img class=" mx-3" src="{{ asset('img/man-home.jpg') }}" alt=""
-                            style="border-radius: 100px" width="100%">
-                        <p class="mt-3 text-light  category-name">All Category</p>
-                        <a href="/watch/all" class="btn btn-secondary btn-details view-detail">View Details >></a>
+
+                        {{-- <a href="/watch/all?brand={{ $value->id }}" class=""> --}}
+                        <a href="/watch/all?brand=1" class="">
+                            <img class="img-brand  mx-3" src="{{ asset('img/brands/rolex.png') }}" alt=""
+                                style="border-radius: 100px" width="100%"></a>
+
                     </div>
                 </div>
-                @foreach ($category as $key => $value)
-                    <?php $cover = 'img/man-home.jpg';
-                    if ($value->cover) {
-                        $cover = 'storage/' . $value->cover;
-                    }
-                    ?>
-                    <div class="swiper-slide">
-                        <div class="m333">
-                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 100px"
-                                width="100%">
-                            <p class="mt-3 text-light category-name">{{ $value->cat_name }}</p>
-                            <a href="/watch/all?category={{ $value->id }}" class="btn btn-secondary view-detail">View
-                                Details
-                                >></a>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($data_size as $key => $value)
-                    <?php $cover = 'img/man-home.jpg';
-                    if ($value->cover) {
-                        $cover = 'storage/' . $value->cover;
-                    }
-                    ?>
-                    <div class="swiper-slide">
-                        <div class="m333">
-                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 100px;"
-                                width="100%">
-                            <p class="mt-3 text-light  category-name">{{ $value->name }}</p>
-                            <a href="/watch/all?size={{ $value->id }}" class="btn btn-secondary view-detail ">View
-                                Details >></a>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($data_model as $key => $value)
-                    <?php $cover = 'img/man-home.jpg';
-                    if ($value->cover) {
-                        $cover = 'storage/' . $value->cover;
-                    }
-                    ?>
-                    <div class="swiper-slide">
-                        <div class="m333">
-                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 100px"
-                                width="100%">
-                            <p class="mt-3 text-light  category-name">{{ $value->name }}</p>
-                            <a href="/watch/all?models={{ $value->id }}" class="btn btn-secondary view-detail">View
-                                Details
-                                >></a>
-                        </div>
-                    </div>
-                @endforeach
-                @foreach ($data_brand as $key => $value)
-                    <?php $cover = 'img/man-home.jpg';
-                    if ($value->cover) {
-                        $cover = 'storage/' . $value->cover;
-                    }
-                    ?>
-                    <div class="swiper-slide">
-                        <div class="m333">
-                            <img class=" mx-3" src="{{ asset($cover) }}" alt="" style="border-radius: 100px"
-                                width="100%">
-                            <p class="mt-3 text-light category-name">{{ $value->name }}</p>
-                            <a href="/watch/all?brand={{ $value->id }}" class="btn btn-secondary view-detail ">View
-                                Details >></a>
-                        </div>
-                    </div>
-                @endforeach
+                <div class="swiper-slide h100-m">
+                    <div class="m333">
 
+                        {{-- <a href="/watch/all?brand={{ $value->id }}" class=""> --}}
+                        <a href="/watch/all?brand=2" class="">
+                            <img class="img-brand  mx-3" src="{{ asset('img/brands/piguet.png') }}" alt=""
+                                style="border-radius: 100px" width="100%"></a>
+
+                    </div>
+                </div>
+                <div class="swiper-slide h100-m">
+                    <div class="m333">
+
+                        {{-- <a href="/watch/all?brand={{ $value->id }}" class=""> --}}
+                        <a href="/watch/all?brand=3" class="">
+                            <img class="img-brand  mx-3" src="{{ asset('img/brands/Patek.png') }}" alt=""
+                                style="border-radius: 100px" width="100%"></a>
+
+                    </div>
+                </div>
+                <div class="swiper-slide h100-m">
+                    <div class="m333">
+
+                        {{-- <a href="/watch/all?brand={{ $value->id }}" class=""> --}}
+                        <a href="/watch/all?brand=4" class="">
+                            <img class="img-brand mx-3" src="{{ asset('img/brands/richard mille.png') }}" alt=""
+                                style="border-radius: 100px" width="100%"></a>
+
+                    </div>
+                </div>
+                <div class="swiper-slide h100-m">
+                    <div class="m333">
+
+                        {{-- <a href="/watch/all?brand={{ $value->id }}" class=""> --}}
+                        <a href="/watch/all?brand=5" class="">
+                            <img class="img-brand  mx-3" src="{{ asset('img/brands/penarai.png') }}" alt=""
+                                style="border-radius: 100px" width="100%"></a>
+
+                    </div>
+                </div>
+                <div class="swiper-slide h100-m">
+                    <div class="m333">
+
+                        {{-- <a href="/watch/all?brand={{ $value->id }}" class=""> --}}
+                        <a href="/watch/all?brand=6" class="">
+                            <img class="img-brand mx-3" src="{{ asset('img/brands/iwc.png') }}" alt=""
+                                style="border-radius: 100px" width="100%"></a>
+
+                    </div>
+                </div>
             </div>
-            <div class="swiper-button-next text-light ns-none"></div>
-            <div class="swiper-button-prev text-light ns-none"></div>
+            <div class="d-block d-lg-none">
+                <div class="swiper-button-next fs-4 text-light"></div>
+                <div class="swiper-button-prev fs-4 text-light"></div>
+            </div>
         </div>
 
-        <hr class="my-5" style="border-top: 3px solid;color: #ffffff;">
-        <div class="container mb-5">
-            <div class="row d-flex justify-content-center text-dark">
+        <hr class="my-5" style="border-top: 3px solid;">
+        <div class=" mb-5">
+            <div class="row d-flex justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-6">
-                    <h2 class="text-light">Contact Us </h2>
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <div class="d-flex flex-start w-100">
-                                <img class="rounded-circle shadow-1-strong me-3"
-                                    src="{{ asset('img/logo_white_circle_black.png') }}" alt="avatar" width="65"
-                                    height="65" />
-                                <div class="w-100">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="textAreaExample">What is your view?</label>
-                                        <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
-                                    </div>
-                                    <div class="d-flex justify-content-between mt-3">
-                                        <div></div>
-                                        <a type="button" class="btn btn-success">
-                                            Send to whatsapp
-                                        </a>
-                                    </div>
-                                </div>
+                    <h2 class="text-light mx-2">Contact Us </h2>
+                    <div class="d-flex flex-start w-100">
+                        <img class="img-contact-us" src="{{ asset('img/Contactus.jpg') }}" alt="avatar" />
+                        <div class="w-100 text-light">
+                            <div class="fw-bold">
+                                Sedang Mencari Jam tertentu?
+                            </div>
+                            <div class="fw-bold mt-2">
+                                Ada pertanyaan yang kami bisa bantu?
+                            </div>
+
+                            <div class="mt-2 fw-lighter">
+                                Silahkan hubungi kami!
+                                Tim expert kami akan langsung melayani Anda.
+                            </div>
+
+                            <div style="width: 100%" class="">
+                                <a href="https://wa.me/628118089992?text=Halo,%20Saya%20Ingin%20bertanya%20tentang%20Jam%20yang%20ada."
+                                    class="btn btn-wa-cs mt-3 ">
+                                    Contact Via WhatsApp
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

@@ -42,4 +42,12 @@ class HomeController extends Controller
     {   
         return view("home.sell-with-us",["title" => "Sell With Us"]);
     }
+    
+    function available_brand()
+    {   
+        
+        $title = "Home";
+        $data_brand = Brand::where('deleted', false)->get();
+        return view("home.avaible-brand",compact('title','data_brand'));
+    }
 }

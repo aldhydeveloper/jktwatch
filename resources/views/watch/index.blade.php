@@ -14,9 +14,6 @@
                 <a href="{{ url('watch/form') . '/' . $value->id }}" class="btn">
                     <img src="{{ asset('storage/' . @$value->image_thumbnail) }}" class="img-ns" />
                     <div class="description">
-                        <div class="watch-tags">{{ implode(', ', $value->models) }}
-                            {{ implode(', ', $value->size) }}
-                            {{ implode(', ', $value->brand) }}</div>
                         <div class="watch-title">{{ $value->name }}</div>
                         <div class="watch-price">IDR
                             {{ $value->price_text }}</div>

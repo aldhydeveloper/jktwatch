@@ -3,7 +3,6 @@
 /* Padding below the footer and lighter body text */
 
 body {
-    color: #5a5a5a;
     font-family: sans-serif;
 }
 
@@ -545,6 +544,14 @@ header.masthead .masthead-heading {
     width: 100%;
     overflow: hidden;
     font-size: x-large;
+    text-decoration: none;
+}
+
+.collection-year {
+    margin-top: 2px;
+    width: 100%;
+    font-size: large;
+    color: rgb(190, 188, 188);
 }
 .collection-title {
     right: 60px;
@@ -567,8 +574,13 @@ header.masthead .masthead-heading {
 
     .hover01 .banner img {
         max-height: 150px;
+        margin-left: -65px;
+        width: 145%;
     }
     .collection-name {
+        font-size: 12px !important;
+    }
+    .collection-year {
         font-size: 12px !important;
     }
     .collection-title {
@@ -590,7 +602,7 @@ header.masthead .masthead-heading {
     }
     .card-why-us {
         padding: 10px !important;
-        height: auto !important;
+        height: 235px !important;
         margin: 0px 5px !important;
     }
     .desc-why-us {
@@ -616,9 +628,24 @@ header.masthead .masthead-heading {
     .gender-body {
         margin: 0 !important;
     }
+    .banner {
+        height: 150px;
+    }
+
+    .swiper-button-next:after {
+        font-size: 20px !important;
+        top: 79% !important;
+    }
+    .swiper-button-prev:after {
+        font-size: 20px !important;
+        top: 79% !important;
+    }
+    .h100-m {
+        height: 100px !important;
+    }
 }
 
-@media (max-width: 992px) {
+@media (min-width: 992px) {
     .ns-none {
         display: none;
     }
@@ -660,19 +687,30 @@ header.masthead .masthead-heading {
     margin-bottom: 60px;
     border-radius: 10px;
 }
+.cover-img-available-brand {
+    object-fit: cover;
+    max-height: 500px;
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 10px;
+}
 
 .cover-img-sell-us {
     object-fit: cover;
     width: 100%;
     margin-bottom: 60px;
+    margin-top: 50px;
     border-radius: 10px;
 }
 .card-why-us {
-    background-color: white;
+    background-color: #191c24;
+    color: white;
     border-radius: 10px;
     width: 400px;
-    padding: 20px;
-    height: 165px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    height: 190px;
     margin: 10px 10px;
 }
 .title-why-us {
@@ -709,10 +747,59 @@ header.masthead .masthead-heading {
     margin-bottom: 10px;
 }
 .btn-wa {
-    background-color: black;
+    background-color: gray;
     color: white;
 }
 
 .btn-wa:hover {
     background-color: green;
+}
+.btn-wa-cs {
+    background-color: gray;
+    right: 0;
+    color: white;
+}
+
+.btn-wa-cs:hover {
+    background-color: green;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.icons-why-us {
+    width: 50px;
+}
+
+.img-contact-us {
+    width: 130px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.img-brand {
+    width: 130px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.card-contact-us {
+    background-color: #191c24;
+    color: white;
+    border-radius: 10px;
+    margin: 10px 10px;
+}
+.available-brand {
+    columns: 2;
+    margin-top: 20px;
+}
+
+.bg-grey {
+    background: #191c24;
+    border-width: 0;
+}
+
+.h100-m {
+    height: 200px;
 }

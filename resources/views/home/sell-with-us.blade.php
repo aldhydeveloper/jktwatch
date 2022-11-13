@@ -29,8 +29,8 @@
                 impian anda. Kami akan mencarikan jam secepat mungkin dan menyiapkannya untuk anda bawa pulang.
             </div>
 
-            <a class="btn btn-wa my-5">
-                Contact us Via Whatsapp
+            <a href="https://wa.me/628118089992?text=Halo,%20Saya%20Ingin%20menjual%20Jam%20saya." class="btn btn-wa my-5">
+                Contact Via WhatsApp
             </a>
 
         </div>

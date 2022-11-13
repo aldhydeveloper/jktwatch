@@ -14,13 +14,13 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/ns.css') }}">
 </head>
 
-<body class="bg-dark">
+<body class="bg-black">
 
     @include('home.layouts.header')
 
-    @include('components.floating-wa')
     @yield('container')
     @include('home.layouts.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

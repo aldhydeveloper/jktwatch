@@ -9,8 +9,10 @@
     }
 </style>
 
-<a href="https://wa.me/6281222998298?text=Hello%20I%20want%20buy%20some%20watch%20{{ @$collections->name }}">
-    <div class="btn-floating">
-        <img src="{{ asset('img/wa_icon.png') }}" width="65" alt="whatsapp">
-    </div>
-</a>
+<div class="d-block d-lg-none ">
+    <a href="https://wa.me/628118089992?text=Halo,%20Saya%20Ingin%20bertanya%20tentang%20Jam%20yang%20ada.">
+        <div class="btn-floating">
+            <img src="{{ asset('img/wa_icon.png') }}" width="45" alt="whatsapp">
+        </div>
+    </a>
+</div>

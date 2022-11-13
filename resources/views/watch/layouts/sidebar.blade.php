@@ -16,7 +16,7 @@
              <div class="col-12 mb-2 mt-3">
 
                  <p class="mb-1">Brand :</p>
-                 <select class="form-select " aria-label="Default select example"
+                 <select class="form-select bg-grey text-light" aria-label="Default select example"
                      onchange="window.location.href=this.value;">
                      <option
                          value=" {{ url()->current() }}{{ $category ? '&category=' . $category : '' }}{{ $models ? '&models=' . $models : '' }}{{ $size ? '&category=' . $size : '' }}">
@@ -33,16 +33,16 @@
              <div class="col-12 mb-2 mt-3">
                  <p class="mb-1">Gender :</p>
                  <a href="{{ url()->current() }}{{ $size ? '?size=' . $size . ($models ? '&' : '') : ($models ? '?' : '') }}{{ $models ? 'models=' . $models . ($brand ? '&' : '') : ($brand ? '?' : '') }}{{ $brand ? 'brand=' . $brand : '' }}"
-                     class="btn  mb-3 {{ !$category ? 'btn-light' : 'btn-dark' }}">All</a>
+                     class="btn  mb-3 {{ !$category ? 'bg-btn-grey' : 'btn-dark' }}">All</a>
                  @foreach ($tags->category as $key => $value)
                      <a href="{{ url()->current() }}?category={{ $key }}{{ $size ? '&size=' . $size : '' }}{{ $models ? '&models=' . $models : '' }}{{ $brand ? '&brand=' . $brand : '' }}"
-                         class="btn  mb-3 {{ $category == $key ? 'btn-light' : 'btn-dark' }}">{{ $value }}</a>
+                         class="btn  mb-3 {{ $category == $key ? 'bg-btn-grey' : 'btn-dark' }}">{{ $value }}</a>
                  @endforeach
              </div>
              <div class="col-12 mb-2">
                  <p class="mb-1">Size :</p>
                  <a href="{{ url()->current() }}{{ $category ? '?category=' . $category . ($models ? '&' : '') : ($models ? '?' : '') }}{{ $models ? 'models=' . $models . ($brand ? '&' : '') : ($brand ? '?' : '') }}{{ $brand ? '&brand=' . $brand : '' }}"
-                     class="btn  mb-3 {{ !$size ? 'btn-light' : 'btn-dark' }}">All</a>
+                     class="btn  mb-3 {{ !$size ? 'bg-btn-grey' : 'btn-dark' }}">All</a>
                  @foreach ($tags->size as $key => $value)
                      <a href="{{ url()->current() }}?size={{ $key }}{{ $category ? '&category=' . $category : '' }}{{ $models ? '&models=' . $models : '' }}{{ $brand ? '&brand=' . $brand : '' }}"
                          class="btn  mb-3 {{ $size == $key ? 'btn-light' : 'btn-dark' }}">{{ $value }}</a>
@@ -51,10 +51,10 @@
              <div class="col-12 mb-2">
                  <p class="mb-1">Model :</p>
                  <a href="{{ url()->current() }}{{ $category ? '?category=' . $category . ($size ? '&' : '') : ($size ? '?' : '') }}{{ $size ? 'size=' . $size . ($brand ? '&' : '') : ($brand ? '?' : '') }}{{ $brand ? 'brand=' . $brand : '' }}"
-                     class="btn  mb-3 {{ !$models ? 'btn-light' : 'btn-dark' }}">All</a>
+                     class="btn  mb-3 {{ !$models ? 'bg-btn-grey' : 'btn-dark' }}">All</a>
                  @foreach ($tags->models as $key => $value)
                      <a href="{{ url()->current() }}?models={{ $key }}{{ $size ? '&size=' . $size : '' }}{{ $category ? '&category=' . $category : '' }}{{ $brand ? '&brand=' . $brand : '' }}"
-                         class="btn  mb-3 {{ $models == $key ? 'btn-light' : 'btn-dark' }}">{{ $value }}</a>
+                         class="btn  mb-3 {{ $models == $key ? 'bg-btn-grey' : 'btn-dark' }}">{{ $value }}</a>
                  @endforeach
              </div>
              {{-- <div class="col-12 mb-2">

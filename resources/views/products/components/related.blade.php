@@ -24,7 +24,7 @@
         align-items: center;
     }
 
-    .img-ns {
+    .img-ns-related {
         height: 350px !important;
     }
 
@@ -48,7 +48,7 @@
             transform: rotate(90deg);
         }
 
-        .img-ns {
+        .img-ns-related {
             height: 115px !important;
         }
 
@@ -62,6 +62,7 @@
 
         .hx-100 {
             height: 230px;
+            width: 115px;
             text-align: center;
             align-items: center;
         }
@@ -80,9 +81,9 @@
                         <div class="swiper-slide ">
                             <a class="btn" href="{{ url('watch/form') . '/' . $value->id }}">
                                 <div class="col mb-5 align-item-center">
-                                    <div class="card bg-grey hx-100">
+                                    <div class=" bg-grey hx-100">
                                         <!-- Product image-->
-                                        <img class="card-img-top img-ns"
+                                        <img class="card-img-top img-ns-related"
                                             src="{{ asset('storage/' . @$value->image_thumbnail) }}" />
                                         <!-- Product details-->
                                         <div class="card-body px-1 py-4">

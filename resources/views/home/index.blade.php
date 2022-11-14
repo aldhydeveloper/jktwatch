@@ -20,17 +20,20 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="bd-placeholder-img" width="100%" height="100%" src="{{ @asset('img/banner-1.jpg') }}">
+                    <img class="bd-placeholder-img" width="100%" height="100%"
+                        src="{{ @asset('img/banner/banner-1.jpg') }}">
                     </img>
 
                 </div>
                 <div class="carousel-item">
-                    <img class="bd-placeholder-img" width="100%" height="100%" src="{{ @asset('img/banner-2.jpg') }}">
+                    <img class="bd-placeholder-img" width="100%" height="100%"
+                        src="{{ @asset('img/banner/banner-2.jpg') }}">
                     </img>
 
                 </div>
                 <div class="carousel-item">
-                    <img class="bd-placeholder-img" width="100%" height="100%" src="{{ @asset('img/banner-3.jpg') }}">
+                    <img class="bd-placeholder-img" width="100%" height="100%"
+                        src="{{ @asset('img/banner/banner-3.jpg') }}">
                     </img>
 
                 </div>
@@ -198,7 +201,7 @@
 
     <div class="container marketing">
         <div class="text-light text-center" style="margin-top: 70px; max-height= 340px">
-            <img class="" src="{{ asset('img/banner-poster.jpg') }}" width="100%" height="100%"
+            <img class="" src="{{ asset('img/banner/banner-poster.jpg') }}" width="100%" height="100%"
                 style="object-fit: cover">
         </div>
 

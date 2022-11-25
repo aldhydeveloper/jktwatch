@@ -71,7 +71,7 @@
 <section class="py-1">
     <div class="container px-2 px-lg-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="swiper mt-5">
+            <div class="swiper mt-5" id="related">
                 <h2 class="text-light mb-3 px-3">Related Products</h2>
                 <div class="swiper-wrapper ">
                     @csrf
@@ -117,12 +117,12 @@
     } else {
         spv = 3;
     }
-    var swiper = new Swiper('.swiper', {
+    var swiper = new Swiper('#related', {
         slidesPerView: spv,
         direction: getDirection(),
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '#related.swiper-button-next',
+            prevEl: '#related.swiper-button-prev',
         },
         on: {
             resize: function() {
